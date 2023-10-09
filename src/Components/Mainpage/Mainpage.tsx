@@ -9,7 +9,7 @@ function Mainpage() {
   return (
     <>
       <Navbar />
-      <section>
+      <section className="card-container">
         {product?.map((item) => {
           return <Card key={item.id} product={item}></Card>;
         })}

@@ -19,26 +19,30 @@ function Card(props: CardProps) {
   const { product } = props;
   console.log(props);
   return (
-    <div className="product">
-      <div className="info">
-        <div className="image">
-          <img
-            className="productImg"
-            src={randomSelect(product.images)}
-            alt={product.title}
-          />
+    <>
+      <div className="product">
+        <div className="info">
+          <div className="image">
+            <img
+              className="productImg"
+              src={randomSelect(product.images)}
+              alt={product.title}
+            />
+          </div>
+          <h3 className="title">{product.title}</h3>
+          <p className="description">{product.description}</p>
         </div>
-        <h3 className="title">{product.title}</h3>
-        <p className="description">{product.description}</p>
+        <div className="price">
+          <p className="price">${product.price}</p>
+          <p className="discountPrice">
+            $
+            {Math.floor(
+              discountPrice(product.price, product.discountPercentage)
+            )}
+          </p>
+        </div>
       </div>
-      <div className="price">
-        <p className="price">${product.price}</p>
-        <p className="discountPrice">
-          $
-          {Math.floor(discountPrice(product.price, product.discountPercentage))}
-        </p>
-      </div>
-    </div>
+    </>
   );
 }
 
