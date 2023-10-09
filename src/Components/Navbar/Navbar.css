@@ -1,0 +1,31 @@
+.navbar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-height: 100px;
+  max-width: 100%;
+  background: #333;
+  padding: 10px;
+}
+
+.branding,
+.user {
+  display: flex;
+  max-height: 100px;
+  align-items: center;
+  gap: 10px;
+}
+.branding img,
+.user img {
+  max-height: 100px;
+  border-radius: 10px;
+}
+.branding p,
+.user p {
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
