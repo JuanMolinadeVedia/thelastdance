@@ -1,10 +1,9 @@
 import "./App.css";
-import { Navbar } from "./Components/Navbar/Navbar";
-
+import { Mainpage } from "./Components/Mainpage/Mainpage";
 function App() {
   return (
     <>
-      <Navbar />
+      <Mainpage />
     </>
   );
 }
