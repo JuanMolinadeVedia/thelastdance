@@ -1,25 +1,99 @@
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Product } from "../../Context/ApiContext";
-import './CardDetails.css'
+import "./CardDetails.css";
+import { Navbar } from "../Navbar/Navbar";
 
-interface ProductProps {
-    data: Product;
-}
+type ProductProps = {
+  key: number;
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  discountPercentage: number;
+  rating: number;
+  stock: number;
+  brand: string;
+  category: string;
+  thumbnail: string;
+  images: string[];
+};
+const discountPrice = (price: number, discount: number) => {
+  const result: number = price - price * (discount / 100);
+  return result;
+};
+const starsRating = (rating: number) => {
+  const stars = [];
+  for (let i = 0; i < rating; i++) {
+    stars.push(
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g id="star">
+          <path
+            id="Vector"
+            d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+            fill="#FFD100"
+            stroke="#FFD100"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </g>
+      </svg>
+    );
+  }
+  return stars;
+};
 
 export function CardDetails() {
-    const [data, setData] = useState<ProductProps | undefined>(undefined);
-    const { id } = useParams();
-    useEffect(() => {
-        const statsApi = `https://dummyjson.com/products/${id}`;
-        fetch(statsApi)
-            .then((response) => response.json())
-            .then((data) => setData(data));
-    }, [id]);
-    console.log(data);
-    return (
-        <>
-        </>
-    )
+  const [data, setData] = useState<ProductProps>();
+  const { id } = useParams();
+  useEffect(() => {
+    async function fetchProduct(): Promise<void> {
+      const statsApi = `https://dummyjson.com/products/${id}`;
+      fetch(statsApi)
+        .then((response) => response.json())
+        .then((data) => setData(data));
+    }
+    fetchProduct();
+  }, [id]);
+  console.log(data);
+  console.log(data);
+  return (
+    <>
+      <Navbar />
+      <div className="details-card">
+        <div className="details-images">
+          <img src={data?.images[0]} alt={data?.title} />
+          <div className="details-alt-images">
+            {data?.images.map((img) => {
+              console.log(img ? img : undefined);
+              return <img src={img} alt="img" width="50px" height="50px" />;
+            })}
+          </div>
+        </div>
+        <div className="details-details">
+          <h2>{data?.title}</h2>
+          <div className="rating">{data && starsRating(data?.rating)}</div>
+          <h3>${data?.price}</h3>
+          <h3>
+            $
+            {data &&
+              Math.floor(discountPrice(data?.price, data?.discountPercentage))}
+          </h3>
+        </div>
+        <div className="details-buy">
+          <p>{data?.description}</p>
+          <h3>Stock:{data?.stock}</h3>
+          <button>Add Cart</button>
+          <button>Wishlist</button>
+        </div>
+      </div>
+    </>
+  );
 }
