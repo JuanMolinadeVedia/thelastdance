@@ -12,7 +12,9 @@ function Navbar() {
           <p>Zarpado ecommerce</p>
         </div>
         <div className="user">
-          <p>Shop</p>
+          <Link to={"/shop"}>
+            <p>Shop</p>
+          </Link>
           <Link to={"/login"}>
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png" />
           </Link>

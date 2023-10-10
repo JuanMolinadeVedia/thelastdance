@@ -40,7 +40,7 @@
     color: white;
 }
 
-button:hover {
+.boton:hover {
     background-color: white;
     color: orangered;
 }

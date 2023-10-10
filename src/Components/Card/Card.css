@@ -52,12 +52,19 @@ p.description {
   gap: 20px;
 }
 
-button {
+.button-wrapper {
   padding: 10px 20px;
   font-size: 16px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+.button-cart{
+padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;    
 }
 
 .wishlist-button {
@@ -69,4 +76,8 @@ button {
 .cart-button {
   background-color: #00ccff;
   color: #fff;
+}
+a{
+    text-decoration: none;
+    color: #000;
 }
