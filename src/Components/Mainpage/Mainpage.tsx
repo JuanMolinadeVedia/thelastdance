@@ -10,7 +10,7 @@ function Mainpage() {
   return (
     <>
       <Navbar />
-      <section>
+      <section className="card-container">
         {product?.map((item) => {
           return (
             <Link key={item.id} to={`/item/${item.id}`}>
