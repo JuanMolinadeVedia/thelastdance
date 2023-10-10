@@ -36,8 +36,6 @@ export function ProductContextProvider({
     fetchData();
   }, []);
 
-  console.log(info ? info : null);
-
   return (
     <ProductContext.Provider value={info}>{children}</ProductContext.Provider>
   );
