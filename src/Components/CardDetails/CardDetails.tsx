@@ -18,10 +18,12 @@ type ProductProps = {
   thumbnail: string;
   images: string[];
 };
+
 const discountPrice = (price: number, discount: number) => {
   const result: number = price - price * (discount / 100);
   return result;
 };
+
 const starsRating = (rating: number) => {
   const stars = [];
   for (let i = 0; i < rating; i++) {
@@ -39,9 +41,9 @@ const starsRating = (rating: number) => {
             d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
             fill="#FFD100"
             stroke="#FFD100"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </g>
       </svg>
@@ -53,6 +55,12 @@ const starsRating = (rating: number) => {
 export function CardDetails() {
   const [data, setData] = useState<ProductProps>();
   const { id } = useParams();
+  const [selectedImage, setSelectedImage] = useState<string>("");
+
+  const handleImageClick = (image: string) => {
+    setSelectedImage(image);
+  };
+
   useEffect(() => {
     async function fetchProduct(): Promise<void> {
       const statsApi = `https://dummyjson.com/products/${id}`;
@@ -62,19 +70,27 @@ export function CardDetails() {
     }
     fetchProduct();
   }, [id]);
-  console.log(data);
-  console.log(data);
+
   return (
     <>
       <Navbar />
       <div className="details-card">
         <div className="details-images">
-          <img src={data?.images[0]} alt={data?.title} />
+          <img
+            className="details-main-image"
+            src={selectedImage || data?.images[0]}
+            alt={data?.title}
+          />
           <div className="details-alt-images">
-            {data?.images.map((img) => {
-              console.log(img ? img : undefined);
-              return <img src={img} alt="img" width="50px" height="50px" />;
-            })}
+            {data?.images.map((img) => (
+              <img
+                src={img}
+                alt="img"
+                width="50px"
+                height="50px"
+                onClick={() => handleImageClick(img)}
+              />
+            ))}
           </div>
         </div>
         <div className="details-details">
@@ -89,9 +105,11 @@ export function CardDetails() {
         </div>
         <div className="details-buy">
           <p>{data?.description}</p>
-          <h3>Stock:{data?.stock}</h3>
-          <button>Add Cart</button>
-          <button>Wishlist</button>
+          <h3>Stock: {data?.stock}</h3>
+          <div className="button-wrapper">
+            <button>Add Cart</button>
+            <button>Wishlist</button>
+          </div>
         </div>
       </div>
     </>
