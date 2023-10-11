@@ -9,19 +9,19 @@
 }
 
 .branding,
-.user {
+.nav-user {
   display: flex;
   max-height: 100px;
   align-items: center;
   gap: 10px;
 }
 .branding img,
-.user img {
+.nav-user img {
   max-height: 100px;
   border-radius: 10px;
 }
 .branding p,
-.user p {
+.nav-user p {
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;

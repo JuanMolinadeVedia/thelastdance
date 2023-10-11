@@ -6,12 +6,12 @@ import { ProductContext } from "../../Context/ApiContext";
 import { Link } from "react-router-dom";
 
 function Shop() {
-  const product = useContext(ProductContext);
+  const products = useContext(ProductContext);
   return (
     <>
       <Navbar />
       <section className="card-container">
-        {product?.map((item) => {
+        {products?.map((item) => {
           return (
             <Link key={item.id} to={`/item/${item.id}`}>
               <Card product={item}></Card>;

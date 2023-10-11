@@ -11,7 +11,7 @@ function Navbar() {
           </Link>
           <p>Zarpado ecommerce</p>
         </div>
-        <div className="user">
+        <div className="nav-user">
           <Link to={"/shop"}>
             <p>Shop</p>
           </Link>

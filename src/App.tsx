@@ -4,6 +4,7 @@ import { Mainpage } from "./Components/Mainpage/Mainpage";
 import { CardDetails } from "./Components/CardDetails/CardDetails";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Shop } from "./Components/Shop/Shop";
+import { UserProfile } from "./Components/UserProfile/UserProfile";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/item/:id" element={<CardDetails />} />
+        <Route path="/user" element={<UserProfile />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,4 +1,4 @@
-import { Product } from "../../Context/ApiContext";
+import { Product } from "../../Types/Types";
 import "./Card.css";
 import "../../assets/star.svg";
 
@@ -52,7 +52,7 @@ function Card(props: CardProps) {
         <div className="rating">
           <p>Rating: {starsRating(product.rating)}</p>
         </div>
-        <div className="info">
+        <div className="card-info">
           <div className="image">
             <img
               className="productImg"

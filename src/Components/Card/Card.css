@@ -30,7 +30,7 @@ p.discountPrice {
 p.description {
   overflow: auto;
 }
-.info {
+.card-info {
   display: flex;
   flex-direction: column;
   align-items: center;
