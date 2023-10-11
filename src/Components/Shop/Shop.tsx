@@ -14,7 +14,7 @@ function Shop() {
         {product?.map((item) => {
           return (
             <Link key={item.id} to={`/item/${item.id}`}>
-              <Card product={item}></Card>;
+              <Card product={item}></Card>
             </Link>
           );
         })}
