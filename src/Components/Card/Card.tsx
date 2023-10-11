@@ -44,6 +44,14 @@ const starsRating = (rating: number) => {
   return stars;
 };
 
+const handleAddToCart = () => {
+  console.log("agregado al carrito");
+};
+const handleAddToWishlist = () => {
+  //Habria que crear un array de productos agregadosWishlist,
+  // hacer que ese array le llegue a context
+  //Despeus que le llegue a cart
+};
 function Card(props: CardProps) {
   const { product } = props;
   return (
@@ -72,7 +80,13 @@ function Card(props: CardProps) {
           </p>
         </div>
         <div className="button-wrapper">
-          <button className="button-whislist">
+          <button
+            className="button-wishlist"
+            onClick={(e) => {
+              e.preventDefault();
+              handleAddToWishlist();
+            }}
+          >
             <svg
               width="12"
               height="11"
@@ -110,7 +124,13 @@ function Card(props: CardProps) {
               </defs>
             </svg>
           </button>
-          <button className="button-cart">
+          <button
+            className="button-cart"
+            onClick={(e) => {
+              e.preventDefault();
+              handleAddToCart();
+            }}
+          >
             <svg
               width="24"
               height="26"
