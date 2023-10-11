@@ -107,8 +107,8 @@ export function CardDetails() {
           <p>{data?.description}</p>
           <h3>Stock: {data?.stock}</h3>
           <div className="button-wrapper">
-            <button>Add Cart</button>
-            <button>Wishlist</button>
+            <button className="cardbutton">Add Cart</button>
+            <button className="cardbutton">Wishlist</button>
           </div>
         </div>
       </div>
