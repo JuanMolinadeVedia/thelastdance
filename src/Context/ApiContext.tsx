@@ -1,22 +1,5 @@
-import { createContext, useEffect, useState, ReactNode } from "react";
-
-export type Product = {
-  key: number;
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  discountPercentage: number;
-  rating: number;
-  stock: number;
-  brand: string;
-  category: string;
-  thumbnail: string;
-  images: string[];
-};
-type ProductContextProviderProps = {
-  children: ReactNode;
-};
+import { createContext, useEffect, useState } from "react";
+import { Product, ProductContextProviderProps } from "../Types/Types";
 
 export const ProductContext = createContext<Product[] | undefined>(undefined);
 

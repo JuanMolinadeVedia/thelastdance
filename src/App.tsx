@@ -4,6 +4,7 @@ import { Mainpage } from "./Components/Mainpage/Mainpage";
 import { CardDetails } from "./Components/CardDetails/CardDetails";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Shop } from "./Components/Shop/Shop";
+import { UserProfile } from "./Components/UserProfile/UserProfile";
 import { Cart } from "./Components/Cart/Cart";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/shop" element={<Shop />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/item/:id" element={<CardDetails />} />
+        <Route path="/user" element={<UserProfile />} />
       </Routes>
     </BrowserRouter>
   );
