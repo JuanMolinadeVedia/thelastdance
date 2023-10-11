@@ -1,0 +1,45 @@
+*{
+    padding: 0;
+    margin:0;
+}
+
+.user{
+    display: flex;
+    width: auto;
+    height: 90.9vh;
+    background-color: red;
+    padding: 2em;
+    overflow: hidden;
+}
+.user-addInfo{
+    width: 35%;
+    height: 75%;
+    background-color: wheat;
+}
+.user-img{
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+}
+.user-img img{
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: white;
+}
+.user-info{
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+}
+.user-phone,
+.user-email,
+.user-address,
+.user-website{
+    display: flex;
+    padding: 1em;
+}
+.user-rightside{
+    width: 60%;
+    background-color: green;
+}
