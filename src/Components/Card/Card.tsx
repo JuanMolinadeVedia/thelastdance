@@ -4,6 +4,7 @@ import "../../assets/star.svg";
 
 interface CardProps {
   product: Product;
+  onAddToWishlist: (product: Product) => void;
 }
 
 const randomSelect = (array: string[]) => {
@@ -21,6 +22,7 @@ const starsRating = (rating: number) => {
   for (let i = 0; i < rating; i++) {
     stars.push(
       <svg
+        key={i}
         width="24"
         height="24"
         viewBox="0 0 24 24"
@@ -44,16 +46,17 @@ const starsRating = (rating: number) => {
   return stars;
 };
 
-const handleAddToCart = () => {
-  console.log("agregado al carrito");
-};
-const handleAddToWishlist = () => {
-  //Habria que crear un array de productos agregadosWishlist,
-  // hacer que ese array le llegue a context
-  //Despeus que le llegue a cart
-};
 function Card(props: CardProps) {
-  const { product } = props;
+  const { product, onAddToWishlist } = props;
+  const handleAddToWishlist = () => {
+    console.log(product);
+    onAddToWishlist(product);
+  };
+
+  const handleAddToCart = () => {
+    console.log("Added to cart");
+  };
+
   return (
     <>
       <div className="product">
