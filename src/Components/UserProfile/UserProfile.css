@@ -7,17 +7,20 @@
     display: flex;
     width: auto;
     height: 90.9vh;
-    background-color: red;
+    background-color: rgb(227, 227, 227);
     padding: 2em;
     overflow: hidden;
 }
 .user-addInfo{
     width: 35%;
-    height: 75%;
-    background-color: wheat;
+    height: auto;
+    padding: 1em;
+    background-color: white;
+    border-radius: 20px 0px 0px 20px;
 }
 .user-img{
     height: 40%;
+    width: auto;
     display: flex;
     justify-content: center;
     padding: 1em;
@@ -35,11 +38,67 @@
 .user-phone,
 .user-email,
 .user-address,
+.user-website img{
+    padding-right: 5px;
+}
+.user-phone,
+.user-email,
+.user-address,
+.user-website p{
+    padding-left: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.user-address img{
+    padding: 3px;
+}
+
+
+.user-phone,
+.user-email,
+.user-address,
 .user-website{
     display: flex;
     padding: 1em;
+    align-items: center;
 }
 .user-rightside{
     width: 60%;
-    background-color: green;
+    background-color: white;
+    border-radius: 0px 20px 20px 0px;
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+}
+.inner-rightside{
+    width: 95%;
+    background-color: white;
+    border-radius: 20px;
+    padding: 1em;
+}
+.name-rightside{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.name-rightside h1{
+    font-size:xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.user-home-logo{
+    width: 30px;
+    height: 30px;
+}
+.name-buttons{
+    display: flex;
+    align-items: center;
+}
+.name-buttons button{
+    width: 50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+    border: none;
 }
