@@ -69,25 +69,201 @@ export function UserProfile() {
               </h1>
             </div>
             <div className="name-buttons">
-              <button>
-                <img
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAeFBMVEX///8CAgIAAADR0dFLS0vm5uY8PDwJCQkjIyPU1NRJSUn5+fnb29vi4uI0NDRQUFCCgoKMjIyrq6vLy8uamporKysVFRVlZWWGhoZeXl5BQUF4eHjx8fGSkpJWVlaioqK/v7+ysrISEhIgICDExMR0dHRra2unp6cndLdhAAAEKElEQVR4nO2d2XbiMBBETRNMglmcxSZAIEC2///DMRNkIFgGMuplTN2nedE5XaOi3WotiSIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKjxkk7jn0xnA+2wwjHIqZK2dmDB6FGrCqIX7cgC0Sefwift0ALx6FHYoql2aIHwzWExiX3t2ALh+R0WEpti0/5xGt0q7GmHFoqXNLvdJ9tKbI5Nj5g5hXPtSLh4dDZtSjY95mps2roCmw61I2Ejdza9046Ei9RN4r12JFy4YpVy7Ui4SDI3ic236bN2JFy0m2/Tocumj9qhcFHaNNWOhIsym2aJdihMuGwKm/7HlNmU8vW6uqMamLF0Ezp3kyjGULhD++zrUHEh3ma/k1condRyYYnU7QgrvJdWuBAWWNhUViI9SCt0tamUQJI2qbRNNVrssjalV3mFSSyqUN6ksjalTEGgqE119vIEbaq1gyBnU632upxN1XrPmZBCvf2DuZTCoVY7yHtSI7RCvc7zm4hCzTNmMjbVM+nGpiIKNRt6Ekso3YOQEjbVqUkdEtlUeQ9vyq5Q+7Quv03pTVWggE3Vz0N4j2cGU6h99OqJWSHdKgtkt6mBs2W8K30L5wN5bapZkzp4baqeSTdw1qYWTLqxKZ9EivVNGkUDToUWTMppUytHWPmyqYVMuqHDZlMjJuWrTa2YNIpeuRSqru734cqmZkwaRSMWhXZMypVNqautawePTQ2ZNIpuWBTaMSlPNtVf3e/DYVNTJmXpm5oyKYdNrdSkjvC1qbkLOaFtqt3MP+YrtELpc90nCW1Tg/ccwn70bbSgDtnZNMjlgy9tPceUNqV4dPNbehtuRpPU1rdwy6Lx14OdTbW3NPnolHehGvRO1iGlTcUvDkjx4BSOtCPhwi2haG2tHAnGwv0Q37Uj4aK0qb2KKxBlNh22f8WdxqWKy3C16e+LtfFSW0M9K1eb/kNBmln+ESezAOsLotRW+2KPZBxkjVhY1arEEDP4LXGmLaWaZbBVPtFKW0wVya3vIdBaPGO01VSx8sxg3q3DcyXcZPG+qIy1qOA6dXgeSLX4oF/iM1z9bHhm3uIrvr6rF/RRO8yTfy0+C7P0KZzUDqv2djFsKRP2BXgV1r+F4DsBYFDhuy/Uce2wsc+l9qrTjk9h/VrRc5vB0jGMEl8uXdaO8hRC1JIJ+iKqs+KpR1c8Hxn6FIr6EqrvPZ8MtfI/xt7m4V+qksbp7nDlrpzRfuSgexzrGbclKk4AmO2aH2eNE5/7bz5+DjO6eNqwOoyVaHLOYj35/DnM4sJiS7u7W/EV/zp3m21+MKprryTdI5nv/qbJ5Px96v6kHLWeW23SOJL3dDSNe+Ovy5LF4OGzF8ejdGldHwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwlfwBc0M7F8XMdx4AAAAASUVORK5CYII="
-                  alt="cart"
-                  width="30px"
-                />
-                CART
-              </button>
-              <button>
-                <img
-                  src="data:image/png;base64,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"
-                  alt="wishlist"
-                  width="30px"
-                />
-                WISHLIST
-              </button>
+              <Link to={"/cart"}>
+                <button>
+                  <svg
+                    width="24"
+                    height="26"
+                    viewBox="0 0 24 26"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g id="shopping-bag" clip-path="url(#clip0_345_155)">
+                      <path
+                        id="Vector"
+                        d="M5.6857 1.63828L2.42856 5.97621V21.159C2.42856 21.7342 2.65733 22.2859 3.06455 22.6927C3.47178 23.0995 4.02409 23.328 4.59999 23.328H19.8C20.3759 23.328 20.9282 23.0995 21.3354 22.6927C21.7426 22.2859 21.9714 21.7342 21.9714 21.159V5.97621L18.7143 1.63828H5.6857Z"
+                        stroke="black"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        id="Vector_2"
+                        d="M2.42856 5.97623H21.9714"
+                        stroke="black"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        id="Vector_3"
+                        d="M16.5428 10.3141C16.5428 11.4646 16.0853 12.568 15.2708 13.3815C14.4564 14.195 13.3518 14.6521 12.2 14.6521C11.0482 14.6521 9.94355 14.195 9.12911 13.3815C8.31467 12.568 7.85712 11.4646 7.85712 10.3141"
+                        stroke="black"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_345_155">
+                        <rect
+                          width="22.8"
+                          height="25.2143"
+                          fill="black"
+                          transform="translate(0.799988 0.0115356)"
+                        />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  CART
+                </button>
+              </Link>
+              <Link to={"/wishlist"}>
+                <button>
+                  <svg
+                    width="12"
+                    height="11"
+                    viewBox="0 0 12 11"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g id="plus" clip-path="url(#clip0_345_159)">
+                      <path
+                        id="Vector"
+                        d="M5.74286 1.68747V9.27887"
+                        stroke="black"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        id="Vector_2"
+                        d="M1.94284 5.48312H9.54284"
+                        stroke="black"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_345_159">
+                        <rect
+                          width="11.4"
+                          height="10.5737"
+                          fill="black"
+                          transform="translate(0.0428467 0.331787)"
+                        />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  WISHLIST
+                </button>
+              </Link>
             </div>
-            <h2>Bought Recently</h2>
-            <div className="boughtrecently"></div>
+            <div className="boughtrecently">
+              <h2>Bought Recently</h2>
+              <div className="boughtrecently-card-wrapper">
+                <div className="boughtrecently-card">
+                  <div className="boughtrecently-card-rating">
+                    <p>Rating producto</p>
+                  </div>
+                  <img src="https://images.squarespace-cdn.com/content/v1/57e49a19414fb5b5169a9161/1544028066142-TRPGM8PJC6M1TIASZ941/GT3_0015_VIRED_3water_FLT-1244_FINAL.jpg" />
+                  <div className="boughtrecently-card-bottom">
+                    <h2>Nombre producto</h2>
+                    <p>Descripcion producto</p>
+                    <p>Precio producto</p>
+                  </div>
+                </div>
+                <div className="boughtrecently-card">
+                  <div className="boughtrecently-card-rating">
+                    <p>Rating producto</p>
+                  </div>
+                  <img src="https://images.squarespace-cdn.com/content/v1/57e49a19414fb5b5169a9161/1544028066142-TRPGM8PJC6M1TIASZ941/GT3_0015_VIRED_3water_FLT-1244_FINAL.jpg" />
+                  <div className="boughtrecently-card-bottom">
+                    <h2>Nombre producto</h2>
+                    <p>Descripcion producto</p>
+                    <p>Precio producto</p>
+                  </div>
+                </div>
+                <div className="boughtrecently-card">
+                  <div className="boughtrecently-card-rating">
+                    <p>Rating producto</p>
+                  </div>
+                  <img src="https://images.squarespace-cdn.com/content/v1/57e49a19414fb5b5169a9161/1544028066142-TRPGM8PJC6M1TIASZ941/GT3_0015_VIRED_3water_FLT-1244_FINAL.jpg" />
+                  <div className="boughtrecently-card-bottom">
+                    <h2>Nombre producto</h2>
+                    <p>Descripcion producto</p>
+                    <p>Precio producto</p>
+                  </div>
+                </div>
+                <div className="boughtrecently-card">
+                  <div className="boughtrecently-card-rating">
+                    <p>Rating producto</p>
+                  </div>
+                  <img src="https://images.squarespace-cdn.com/content/v1/57e49a19414fb5b5169a9161/1544028066142-TRPGM8PJC6M1TIASZ941/GT3_0015_VIRED_3water_FLT-1244_FINAL.jpg" />
+                  <div className="boughtrecently-card-bottom">
+                    <h2>Nombre producto</h2>
+                    <p>Descripcion producto</p>
+                    <p>Precio producto</p>
+                  </div>
+                </div>
+                <div className="boughtrecently-card">
+                  <div className="boughtrecently-card-rating">
+                    <p>Rating producto</p>
+                  </div>
+                  <img src="https://images.squarespace-cdn.com/content/v1/57e49a19414fb5b5169a9161/1544028066142-TRPGM8PJC6M1TIASZ941/GT3_0015_VIRED_3water_FLT-1244_FINAL.jpg" />
+                  <div className="boughtrecently-card-bottom">
+                    <h2>Nombre producto</h2>
+                    <p>Descripcion producto</p>
+                    <p>Precio producto</p>
+                  </div>
+                </div>
+                <div className="boughtrecently-card">
+                  <div className="boughtrecently-card-rating">
+                    <p>Rating producto</p>
+                  </div>
+                  <img src="https://images.squarespace-cdn.com/content/v1/57e49a19414fb5b5169a9161/1544028066142-TRPGM8PJC6M1TIASZ941/GT3_0015_VIRED_3water_FLT-1244_FINAL.jpg" />
+                  <div className="boughtrecently-card-bottom">
+                    <h2>Nombre producto</h2>
+                    <p>Descripcion producto</p>
+                    <p>Precio producto</p>
+                  </div>
+                </div>
+                <div className="boughtrecently-card">
+                  <div className="boughtrecently-card-rating">
+                    <p>Rating producto</p>
+                  </div>
+                  <img src="https://images.squarespace-cdn.com/content/v1/57e49a19414fb5b5169a9161/1544028066142-TRPGM8PJC6M1TIASZ941/GT3_0015_VIRED_3water_FLT-1244_FINAL.jpg" />
+                  <div className="boughtrecently-card-bottom">
+                    <h2>Nombre producto</h2>
+                    <p>Descripcion producto</p>
+                    <p>Precio producto</p>
+                  </div>
+                </div>
+                <div className="boughtrecently-card">
+                  <div className="boughtrecently-card-rating">
+                    <p>Rating producto</p>
+                  </div>
+                  <img src="https://images.squarespace-cdn.com/content/v1/57e49a19414fb5b5169a9161/1544028066142-TRPGM8PJC6M1TIASZ941/GT3_0015_VIRED_3water_FLT-1244_FINAL.jpg" />
+                  <div className="boughtrecently-card-bottom">
+                    <h2>Nombre producto</h2>
+                    <p>Descripcion producto</p>
+                    <p>Precio producto</p>
+                  </div>
+                </div>
+                <div className="boughtrecently-card">
+                  <div className="boughtrecently-card-rating">
+                    <p>Rating producto</p>
+                  </div>
+                  <img src="https://images.squarespace-cdn.com/content/v1/57e49a19414fb5b5169a9161/1544028066142-TRPGM8PJC6M1TIASZ941/GT3_0015_VIRED_3water_FLT-1244_FINAL.jpg" />
+                  <div className="boughtrecently-card-bottom">
+                    <h2>Nombre producto</h2>
+                    <p>Descripcion producto</p>
+                    <p>Precio producto</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

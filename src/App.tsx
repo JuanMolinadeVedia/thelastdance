@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Shop } from "./Components/Shop/Shop";
 import { UserProfile } from "./Components/UserProfile/UserProfile";
 import { Cart } from "./Components/Cart/Cart";
+import { Wishlist } from "./Components/Wishlist/Wishlist";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/item/:id" element={<CardDetails />} />
         <Route path="/user" element={<UserProfile />} />
+        <Route path="/wishlist" element={<Wishlist />} />
       </Routes>
     </BrowserRouter>
   );

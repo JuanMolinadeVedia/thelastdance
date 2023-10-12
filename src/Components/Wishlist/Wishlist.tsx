@@ -1,7 +1,12 @@
+import { Navbar } from "../Navbar/Navbar";
 import "./Wishlist.css";
 
 function Wishlist() {
-  return <></>;
+  return (
+    <>
+      <Navbar />;
+    </>
+  );
 }
 
 export { Wishlist };
