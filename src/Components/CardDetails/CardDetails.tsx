@@ -74,41 +74,48 @@ export function CardDetails() {
   return (
     <>
       <Navbar />
-      <div className="details-card">
-        <div className="details-images">
-          <img
-            className="details-main-image"
-            src={selectedImage || data?.images[0]}
-            alt={data?.title}
-          />
-          <div className="details-alt-images">
-            {data?.images.map((img) => (
-              <img
-                src={img}
-                alt="img"
-                width="50px"
-                height="50px"
-                onClick={() => handleImageClick(img)}
-              />
-            ))}
+      <div className="card-details-page">
+        <div className="details-card">
+          <div className="details-images">
+            <img
+              className="details-main-image"
+              src={selectedImage || data?.images[0]}
+              alt={data?.title}
+            />
+            <div className="details-alt-images">
+              {data?.images.map((img) => (
+                <img
+                  className="alt-images"
+                  src={img}
+                  alt="img"
+                  width="50px"
+                  height="50px"
+                  onClick={() => handleImageClick(img)}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-        <div className="details-details">
-          <h2>{data?.title}</h2>
-          <div className="rating">{data && starsRating(data?.rating)}</div>
-          <h3>${data?.price}</h3>
-          <h3>
-            $
-            {data &&
-              Math.floor(discountPrice(data?.price, data?.discountPercentage))}
-          </h3>
-        </div>
-        <div className="details-buy">
-          <p>{data?.description}</p>
-          <h3>Stock: {data?.stock}</h3>
-          <div className="button-wrapper">
-            <button className="cardbutton">Add Cart</button>
-            <button className="cardbutton">Wishlist</button>
+          <div className="right-details">
+            <div className="details-details">
+              <h2>{data?.title}</h2>
+              <div className="rating">{data && starsRating(data?.rating)}</div>
+              <h3>${data?.price}</h3>
+              <h3>
+                $
+                {data &&
+                  Math.floor(
+                    discountPrice(data?.price, data?.discountPercentage)
+                  )}
+              </h3>
+            </div>
+            <div className="details-buy">
+              <p>{data?.description}</p>
+              <h3>Stock: {data?.stock}</h3>
+              <div className="button-wrapper">
+                <button className="cardbutton">Add Cart</button>
+                <button className="cardbutton">Wishlist</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
