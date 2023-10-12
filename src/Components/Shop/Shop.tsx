@@ -14,7 +14,7 @@ function Shop() {
         {products?.map((item) => {
           return (
             <Link key={item.id} to={`/item/${item.id}`}>
-              <Card product={item} onAddToWishlist={}></Card>
+              <Card product={item}></Card>
             </Link>
           );
         })}
