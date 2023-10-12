@@ -4,7 +4,6 @@ import "../../assets/star.svg";
 
 interface CardProps {
   product: Product;
-  onAddToWishlist: (product: Product) => void;
 }
 
 const randomSelect = (array: string[]) => {
@@ -47,16 +46,7 @@ const starsRating = (rating: number) => {
 };
 
 function Card(props: CardProps) {
-  const { product, onAddToWishlist } = props;
-  const handleAddToWishlist = () => {
-    console.log(product);
-    onAddToWishlist(product);
-  };
-
-  const handleAddToCart = () => {
-    console.log("Added to cart");
-  };
-
+  const { product } = props;
   return (
     <>
       <div className="product">
@@ -87,7 +77,6 @@ function Card(props: CardProps) {
             className="button-wishlist"
             onClick={(e) => {
               e.preventDefault();
-              handleAddToWishlist();
             }}
           >
             <svg
@@ -131,7 +120,6 @@ function Card(props: CardProps) {
             className="button-cart"
             onClick={(e) => {
               e.preventDefault();
-              handleAddToCart();
             }}
           >
             <svg
