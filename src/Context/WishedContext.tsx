@@ -7,7 +7,7 @@ import {
 
 const DEFAULT_VALUE = {
   wishedList: [],
-  clickFunction: (e: Product) => console.log(e),
+  clickFunctionWish: (e: Product) => console.log(e),
 };
 
 export const WishedContext = createContext<WishedContextValue>(DEFAULT_VALUE);
@@ -17,9 +17,9 @@ export function WishedContextProvider({ children }: ChildrenContextProps) {
   const wishedArray: Product[] = [];
   const wishedValue: WishedContextValue = {
     wishedList: wished,
-    clickFunction: handleClick,
+    clickFunctionWish: handleClickWish,
   };
-  function handleClick(e: Product) {
+  function handleClickWish(e: Product) {
     wishedArray.push(e);
     setWished(wishedArray);
   }

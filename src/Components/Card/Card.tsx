@@ -1,6 +1,13 @@
-import { Product } from "../../Types/Types";
+import {
+  Product,
+  WishedContextValue,
+  CartedContextValue,
+} from "../../Types/Types";
 import "./Card.css";
 import "../../assets/star.svg";
+import { useContext } from "react";
+import { WishedContext } from "../../Context/WishedContext";
+import { CartedContext } from "../../Context/CartedContext";
 
 interface CardProps {
   product: Product;
@@ -46,6 +53,14 @@ const starsRating = (rating: number) => {
 };
 
 function Card(props: CardProps) {
+  const { wishedList, clickFunctionWish }: WishedContextValue = useContext(
+    WishedContext
+  );
+  const { cartedList, clickFunctionCart }: CartedContextValue = useContext(
+    CartedContext
+  );
+  console.log(wishedList);
+  console.log(cartedList);
   const { product } = props;
   return (
     <>
@@ -77,6 +92,7 @@ function Card(props: CardProps) {
             className="button-wishlist"
             onClick={(e) => {
               e.preventDefault();
+              clickFunctionWish(product);
             }}
           >
             <svg
@@ -120,6 +136,7 @@ function Card(props: CardProps) {
             className="button-cart"
             onClick={(e) => {
               e.preventDefault();
+              clickFunctionCart(product);
             }}
           >
             <svg

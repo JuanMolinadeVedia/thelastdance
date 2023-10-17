@@ -7,7 +7,7 @@ import {
 
 const DEFAULT_VALUE = {
   cartedList: [],
-  clickFunction: (e: Product) => console.log(e),
+  clickFunctionCart: (e: Product) => console.log(e),
 };
 
 export const CartedContext = createContext<CartedContextValue>(DEFAULT_VALUE);
@@ -17,9 +17,9 @@ export function CartedContextProvider({ children }: ChildrenContextProps) {
   const cartedArray: Product[] = [];
   const cartedValue: CartedContextValue = {
     cartedList: carted,
-    clickFunction: handleClick,
+    clickFunctionCart: handleClickCart,
   };
-  function handleClick(e: Product) {
+  function handleClickCart(e: Product) {
     cartedArray.push(e);
     setCarted(cartedArray);
   }
