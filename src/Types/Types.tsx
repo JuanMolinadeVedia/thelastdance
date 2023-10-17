@@ -38,6 +38,11 @@ export type Product = {
   thumbnail: string;
   images: string[];
 };
-export type ProductContextProviderProps = {
+export type ChildrenContextProps = {
   children: ReactNode;
+};
+
+export type WishedContextValue = {
+  wishedList: Product[];
+  clickFunction: (e: Product) => void;
 };
