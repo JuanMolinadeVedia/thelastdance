@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  max-height: 100px;
+  max-height: 70px;
   max-width: 100%;
   background: #333;
   padding: 10px;
@@ -11,13 +11,13 @@
 .branding,
 .nav-user {
   display: flex;
-  max-height: 100px;
+  max-height: 70px;
   align-items: center;
   gap: 10px;
 }
 .branding img,
 .nav-user img {
-  max-height: 100px;
+  max-height: 70px;
   border-radius: 10px;
 }
 .branding p,

@@ -21,6 +21,9 @@ export function UserProfile() {
             <img src={user?.image} alt="" />
           </div>
           <div className="user-info">
+            <h1>
+              {user?.firstName} {user?.lastName}
+            </h1>
             <div className="user-email">
               <img
                 src="https://img.freepik.com/premium-vector/mail-simple-icon-white-mail-icon-black-circle-vector-illustration-stock-image_797523-1729.jpg"
@@ -63,11 +66,7 @@ export function UserProfile() {
         </div>
         <div className="user-rightside">
           <div className="inner-rightside">
-            <div className="name-rightside">
-              <h1>
-                {user?.firstName} {user?.lastName}
-              </h1>
-            </div>
+            <div className="name-rightside"></div>
             <div className="name-buttons">
               <Link to={"/cart"}>
                 <button>
@@ -84,7 +83,6 @@ export function UserProfile() {
                         d="M5.6857 1.63828L2.42856 5.97621V21.159C2.42856 21.7342 2.65733 22.2859 3.06455 22.6927C3.47178 23.0995 4.02409 23.328 4.59999 23.328H19.8C20.3759 23.328 20.9282 23.0995 21.3354 22.6927C21.7426 22.2859 21.9714 21.7342 21.9714 21.159V5.97621L18.7143 1.63828H5.6857Z"
                         stroke="black"
                         stroke-width="2.5"
-                        stroke-linecap="round"
                         stroke-linejoin="round"
                       />
                       <path
@@ -92,7 +90,6 @@ export function UserProfile() {
                         d="M2.42856 5.97623H21.9714"
                         stroke="black"
                         stroke-width="2.5"
-                        stroke-linecap="round"
                         stroke-linejoin="round"
                       />
                       <path
@@ -100,7 +97,6 @@ export function UserProfile() {
                         d="M16.5428 10.3141C16.5428 11.4646 16.0853 12.568 15.2708 13.3815C14.4564 14.195 13.3518 14.6521 12.2 14.6521C11.0482 14.6521 9.94355 14.195 9.12911 13.3815C8.31467 12.568 7.85712 11.4646 7.85712 10.3141"
                         stroke="black"
                         stroke-width="2.5"
-                        stroke-linecap="round"
                         stroke-linejoin="round"
                       />
                     </g>
@@ -133,7 +129,6 @@ export function UserProfile() {
                         d="M5.74286 1.68747V9.27887"
                         stroke="black"
                         stroke-width="2.5"
-                        stroke-linecap="round"
                         stroke-linejoin="round"
                       />
                       <path
@@ -141,7 +136,6 @@ export function UserProfile() {
                         d="M1.94284 5.48312H9.54284"
                         stroke="black"
                         stroke-width="2.5"
-                        stroke-linecap="round"
                         stroke-linejoin="round"
                       />
                     </g>
@@ -163,39 +157,6 @@ export function UserProfile() {
             <div className="boughtrecently">
               <h2>Bought Recently</h2>
               <div className="boughtrecently-card-wrapper">
-                <div className="boughtrecently-card">
-                  <div className="boughtrecently-card-rating">
-                    <p>Rating producto</p>
-                  </div>
-                  <img src="https://images.squarespace-cdn.com/content/v1/57e49a19414fb5b5169a9161/1544028066142-TRPGM8PJC6M1TIASZ941/GT3_0015_VIRED_3water_FLT-1244_FINAL.jpg" />
-                  <div className="boughtrecently-card-bottom">
-                    <h2>Nombre producto</h2>
-                    <p>Descripcion producto</p>
-                    <p>Precio producto</p>
-                  </div>
-                </div>
-                <div className="boughtrecently-card">
-                  <div className="boughtrecently-card-rating">
-                    <p>Rating producto</p>
-                  </div>
-                  <img src="https://images.squarespace-cdn.com/content/v1/57e49a19414fb5b5169a9161/1544028066142-TRPGM8PJC6M1TIASZ941/GT3_0015_VIRED_3water_FLT-1244_FINAL.jpg" />
-                  <div className="boughtrecently-card-bottom">
-                    <h2>Nombre producto</h2>
-                    <p>Descripcion producto</p>
-                    <p>Precio producto</p>
-                  </div>
-                </div>
-                <div className="boughtrecently-card">
-                  <div className="boughtrecently-card-rating">
-                    <p>Rating producto</p>
-                  </div>
-                  <img src="https://images.squarespace-cdn.com/content/v1/57e49a19414fb5b5169a9161/1544028066142-TRPGM8PJC6M1TIASZ941/GT3_0015_VIRED_3water_FLT-1244_FINAL.jpg" />
-                  <div className="boughtrecently-card-bottom">
-                    <h2>Nombre producto</h2>
-                    <p>Descripcion producto</p>
-                    <p>Precio producto</p>
-                  </div>
-                </div>
                 <div className="boughtrecently-card">
                   <div className="boughtrecently-card-rating">
                     <p>Rating producto</p>
