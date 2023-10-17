@@ -70,7 +70,7 @@ export function UserProfile() {
             <div className="name-buttons">
               <Link to={"/cart"}>
                 <button>
-                  <svg
+                  {/* <svg
                     width="24"
                     height="26"
                     viewBox="0 0 24 26"
@@ -110,13 +110,13 @@ export function UserProfile() {
                         />
                       </clipPath>
                     </defs>
-                  </svg>
+                  </svg> */}
                   CART
                 </button>
               </Link>
               <Link to={"/wishlist"}>
                 <button>
-                  <svg
+                  {/* <svg
                     width="12"
                     height="11"
                     viewBox="0 0 12 11"
@@ -149,7 +149,7 @@ export function UserProfile() {
                         />
                       </clipPath>
                     </defs>
-                  </svg>
+                  </svg> */}
                   WISHLIST
                 </button>
               </Link>

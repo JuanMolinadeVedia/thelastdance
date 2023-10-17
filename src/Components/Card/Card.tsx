@@ -1,8 +1,4 @@
-import {
-  Product,
-  WishedContextValue,
-  CartedContextValue,
-} from "../../Types/Types";
+import { Product } from "../../Types/Types";
 import "./Card.css";
 import "../../assets/star.svg";
 import { useContext } from "react";
@@ -23,50 +19,44 @@ const discountPrice = (price: number, discount: number) => {
   return result;
 };
 
-const starsRating = (rating: number) => {
-  const stars = [];
-  for (let i = 0; i < rating; i++) {
-    stars.push(
-      <svg
-        key={i}
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g id="star">
-          <path
-            id="Vector"
-            d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-            fill="#FFD100"
-            stroke="#FFD100"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </g>
-      </svg>
-    );
-  }
-  return stars;
-};
+// const starsRating = (rating: number) => {
+//   const stars = [];
+//   for (let i = 0; i < rating; i++) {
+//     stars.push(
+//       <svg
+//         key={i}
+//         width="24"
+//         height="24"
+//         viewBox="0 0 24 24"
+//         fill="none"
+//         xmlns="http://www.w3.org/2000/svg"
+//       >
+//         <g id="star">
+//           <path
+//             id="Vector"
+//             d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+//             fill="#FFD100"
+//             stroke="#FFD100"
+//             stroke-width="2"
+//             stroke-linecap="round"
+//             stroke-linejoin="round"
+//           />
+//         </g>
+//       </svg>
+//     );
+//   }
+//   return stars;
+// };
 
 function Card(props: CardProps) {
-  const { wishedList, clickFunctionWish }: WishedContextValue = useContext(
-    WishedContext
-  );
-  const { cartedList, clickFunctionCart }: CartedContextValue = useContext(
-    CartedContext
-  );
-  console.log(wishedList);
-  console.log(cartedList);
+  const { wishedList, clickFunctionWish } = useContext(WishedContext);
+  const { cartedList, clickFunctionCart } = useContext(CartedContext);
   const { product } = props;
   return (
     <>
       <div className="product">
         <div className="rating">
-          <p>Rating: {starsRating(product.rating)}</p>
+          {/* <p>Rating: {starsRating(product.rating)}</p> */}
         </div>
         <div className="card-info">
           <div className="image">
@@ -95,7 +85,7 @@ function Card(props: CardProps) {
               clickFunctionWish(product);
             }}
           >
-            <svg
+            {/* <svg
               width="12"
               height="11"
               viewBox="0 0 12 11"
@@ -130,16 +120,18 @@ function Card(props: CardProps) {
                   />
                 </clipPath>
               </defs>
-            </svg>
+            </svg> */}
           </button>
           <button
             className="button-cart"
             onClick={(e) => {
               e.preventDefault();
+              console.log("CALLING FN");
               clickFunctionCart(product);
+              console.log("END CALLING FN");
             }}
           >
-            <svg
+            {/* <svg
               width="24"
               height="26"
               viewBox="0 0 24 26"
@@ -182,7 +174,7 @@ function Card(props: CardProps) {
                   />
                 </clipPath>
               </defs>
-            </svg>
+            </svg> */}
           </button>
         </div>
       </div>
