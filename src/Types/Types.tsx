@@ -46,3 +46,7 @@ export type WishedContextValue = {
   wishedList: Product[];
   clickFunction: (e: Product) => void;
 };
+export type CartedContextValue = {
+  cartedList: Product[];
+  clickFunction: (e: Product) => void;
+};
