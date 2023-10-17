@@ -1,9 +1,10 @@
 import { createContext, useState } from "react";
-import {
-  Product,
-  ChildrenContextProps,
-  WishedContextValue,
-} from "../Types/Types";
+import { Product, ChildrenContextProps } from "../Types/Types";
+
+export type WishedContextValue = {
+  wishedList: Product[];
+  clickFunctionWish: (e: Product) => void;
+};
 
 const DEFAULT_VALUE = {
   wishedList: [],

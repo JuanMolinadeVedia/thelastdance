@@ -5,15 +5,18 @@ import App from "./App.tsx";
 import "./index.css";
 import { UserContextProvider } from "./Context/UserContext.tsx";
 import { WishedContextProvider } from "./Context/WishedContext.tsx";
+import { CartedContextProvider } from "./Context/CartedContext.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <UserContextProvider>
-      <WishedContextProvider>
-        <ProductContextProvider>
-          <App />
-        </ProductContextProvider>
-      </WishedContextProvider>
+      <CartedContextProvider>
+        <WishedContextProvider>
+          <ProductContextProvider>
+            <App />
+          </ProductContextProvider>
+        </WishedContextProvider>
+      </CartedContextProvider>
     </UserContextProvider>
   </React.StrictMode>
 );

@@ -41,12 +41,3 @@ export type Product = {
 export type ChildrenContextProps = {
   children: ReactNode;
 };
-
-export type WishedContextValue = {
-  wishedList: Product[];
-  clickFunction: (e: Product) => void;
-};
-export type CartedContextValue = {
-  cartedList: Product[];
-  clickFunction: (e: Product) => void;
-};
