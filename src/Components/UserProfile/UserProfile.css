@@ -19,7 +19,7 @@
   border-radius: 20px 0px 0px 20px;
 }
 .user-img {
-  height: 40%;
+  height: 30%;
   width: auto;
   display: flex;
   justify-content: center;
@@ -119,7 +119,7 @@
   justify-content: center;
   background-color: rgb(218, 218, 218);
   padding: 20px;
-  height: 400px;
+  height: 350px;
   flex-wrap: wrap;
   overflow: auto;
   border-radius: 10px;
@@ -137,4 +137,50 @@
 }
 .boughtrecently-card img {
   width: 100px;
+}
+@media (max-width: 600px) {
+  .user {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 90%;
+    align-items: center;
+  }
+  .user-addInfo {
+    width: 90.1%;
+    border-radius: 20px 20px 0px 0px;
+  }
+  .user-img {
+    height: 30%;
+  }
+  .user-info {
+    flex: 1 1 40%;
+    margin-bottom: 0;
+  }
+  .user-phone,
+  .user-email,
+  .user-address,
+  .user-website {
+    flex: 1 1 50%;
+  }
+  .name-buttons button {
+    width: auto;
+    height: auto;
+    margin: 0 0.5em;
+  }
+  .boughtrecently-card {
+    /* width: 30%; */
+    margin: 0.5em;
+  }
+  .boughtrecently-card-wrapper {
+    height: auto;
+  }
+  .user-rightside {
+    width: 83.8%;
+    background-color: white;
+    border-radius: 0px 0px 20px 20px;
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+  }
 }
