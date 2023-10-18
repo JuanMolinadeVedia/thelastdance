@@ -16,6 +16,9 @@ function Navbar() {
           <Link to={"/cart"}>
             <p>Cart</p>
           </Link>
+          <Link to={"/wishlist"}>
+            <p>Wishlist</p>
+          </Link>
         </div>
         <div className="nav-user">
           <Link to={"/shop"}>
