@@ -85,42 +85,7 @@ function Card(props: CardProps) {
               clickFunctionWish(product);
             }}
           >
-            {/* <svg
-              width="12"
-              height="11"
-              viewBox="0 0 12 11"
-              fill="black"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g id="plus" clip-path="url(#clip0_345_159)">
-                <path
-                  id="Vector"
-                  d="M5.74286 1.68747V9.27887"
-                  stroke="black"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  id="Vector_2"
-                  d="M1.94284 5.48312H9.54284"
-                  stroke="black"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_345_159">
-                  <rect
-                    width="11.4"
-                    height="10.5737"
-                    fill="black"
-                    transform="translate(0.0428467 0.331787)"
-                  />
-                </clipPath>
-              </defs>
-            </svg> */}
+            Wishlist
           </button>
           <button
             className="button-cart"
@@ -131,50 +96,7 @@ function Card(props: CardProps) {
               console.log("END CALLING FN");
             }}
           >
-            {/* <svg
-              width="24"
-              height="26"
-              viewBox="0 0 24 26"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g id="shopping-bag" clip-path="url(#clip0_345_155)">
-                <path
-                  id="Vector"
-                  d="M5.6857 1.63828L2.42856 5.97621V21.159C2.42856 21.7342 2.65733 22.2859 3.06455 22.6927C3.47178 23.0995 4.02409 23.328 4.59999 23.328H19.8C20.3759 23.328 20.9282 23.0995 21.3354 22.6927C21.7426 22.2859 21.9714 21.7342 21.9714 21.159V5.97621L18.7143 1.63828H5.6857Z"
-                  stroke="black"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  id="Vector_2"
-                  d="M2.42856 5.97623H21.9714"
-                  stroke="black"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  id="Vector_3"
-                  d="M16.5428 10.3141C16.5428 11.4646 16.0853 12.568 15.2708 13.3815C14.4564 14.195 13.3518 14.6521 12.2 14.6521C11.0482 14.6521 9.94355 14.195 9.12911 13.3815C8.31467 12.568 7.85712 11.4646 7.85712 10.3141"
-                  stroke="black"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_345_155">
-                  <rect
-                    width="22.8"
-                    height="25.2143"
-                    fill="black"
-                    transform="translate(0.799988 0.0115356)"
-                  />
-                </clipPath>
-              </defs>
-            </svg> */}
+            Cart{" "}
           </button>
         </div>
       </div>
