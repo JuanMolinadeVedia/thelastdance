@@ -3,7 +3,7 @@ import "./Cart.css";
 import { Navbar } from "../Navbar/Navbar";
 import { useContext } from "react";
 import { CartedContext } from "../../Context/CartedContext";
-import { CartedContextValue } from "../../Types/Types";
+import { CartedContextValue } from "../../Context/CartedContext";
 import { Link } from "react-router-dom";
 import { Card } from "../Card/Card";
 
