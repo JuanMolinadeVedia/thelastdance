@@ -9,6 +9,7 @@
 }
 
 .branding,
+.sections,
 .nav-user {
   display: flex;
   max-height: 70px;
@@ -21,6 +22,7 @@
   border-radius: 10px;
 }
 .branding p,
+.sections p,
 .nav-user p {
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
@@ -28,7 +30,4 @@
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-}
-.sections {
-  display: flex;
 }
