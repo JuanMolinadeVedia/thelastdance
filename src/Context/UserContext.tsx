@@ -2,11 +2,11 @@ import { createContext, useEffect, useState } from "react";
 
 import { User, UserContextProviderProps } from "../Types/Types";
 
-export const UserContext = createContext<User[] | undefined>(undefined);
+export const UserContext = createContext<User[]>([]);
 
 export function UserContextProvider({ children }: UserContextProviderProps) {
   const USER_URL = "https://dummyjson.com/users";
-  const [info, setInfo] = useState<User[] | undefined>(undefined);
+  const [info, setInfo] = useState<User[]>([]);
 
   useEffect(() => {
     async function fetchData(): Promise<void> {

@@ -6,17 +6,20 @@ import "./index.css";
 import { UserContextProvider } from "./Context/UserContext.tsx";
 import { WishedContextProvider } from "./Context/WishedContext.tsx";
 import { CartedContextProvider } from "./Context/CartedContext.tsx";
+import { IsLoggedContextProvider } from "./Context/IsLoggedContext.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <UserContextProvider>
-      <CartedContextProvider>
-        <WishedContextProvider>
-          <ProductContextProvider>
-            <App />
-          </ProductContextProvider>
-        </WishedContextProvider>
-      </CartedContextProvider>
+      <IsLoggedContextProvider>
+        <CartedContextProvider>
+          <WishedContextProvider>
+            <ProductContextProvider>
+              <App />
+            </ProductContextProvider>
+          </WishedContextProvider>
+        </CartedContextProvider>
+      </IsLoggedContextProvider>
     </UserContextProvider>
   </React.StrictMode>
 );
