@@ -1,4 +1,6 @@
 import React, { useState, ChangeEvent, useEffect } from "react";
+import "./Filters.css";
+import { Product } from "../Card/Card";
 
 export interface FiltersData {
   textInput: string;
@@ -9,24 +11,24 @@ export interface FiltersData {
 
 interface FiltersProps {
   onFilterChange: (filters: FiltersData) => void;
-  prices: number[];
+  products: Product[];
 }
 
-function Filters({ onFilterChange, prices }: FiltersProps) {
+function Filters({ onFilterChange, products }: FiltersProps) {
   const [textInput, setTextInput] = useState("");
   const [slider1Value, setSlider1Value] = useState(0);
   const [slider2Value, setSlider2Value] = useState(0);
   const [selectedOption, setSelectedOption] = useState("");
+  const categories = Array.from(new Set(products.map((product) => product.category)));
 
   useEffect(() => {
-    if (prices.length > 0) {
-      const minPrice = Math.min(...prices);
-      const maxPrice = Math.max(...prices);
-
+    if (products.length > 0) {
+      const minPrice = Math.min(...products.map((product) => product.price));
+      const maxPrice = Math.max(...products.map((product) => product.price));
       setSlider1Value(minPrice);
       setSlider2Value(maxPrice);
     }
-  }, [prices]);
+  }, [products]);
 
   const handleTextInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setTextInput(event.target.value);
@@ -54,8 +56,8 @@ function Filters({ onFilterChange, prices }: FiltersProps) {
   };
 
   return (
-    <>
-      <div>
+    <div className="filters-container">
+      <div className="filter-item">
         <label htmlFor="textInput">Name Description Brand:</label>
         <input
           type="text"
@@ -64,45 +66,45 @@ function Filters({ onFilterChange, prices }: FiltersProps) {
           onChange={handleTextInputChange}
         />
       </div>
-      <div>
+      <div className="filter-item">
         <label htmlFor="slider1">Min. Price:</label>
         <input
           type="range"
           id="slider1"
           value={slider1Value}
-          min={Math.min(...prices)}
-          max={Math.max(...prices)}
+          min={Math.min(...products.map((product) => product.price))}
+          max={Math.max(...products.map((product) => product.price))}
           onChange={handleSlider1Change}
         />
         <p>{slider1Value}</p>
       </div>
-      <div>
+      <div className="filter-item">
         <label htmlFor="slider2">Max. Price:</label>
         <input
           type="range"
           id="slider2"
           value={slider2Value}
-          min={Math.min(...prices)}
-          max={Math.max(...prices)}
+          min={Math.min(...products.map((product) => product.price))}
+          max={Math.max(...products.map((product) => product.price))}
           onChange={handleSlider2Change}
         />
         <p>{slider2Value}</p>
       </div>
-      <div>
+      <div className="filter-item">
         <label htmlFor="dropdown">Categories:</label>
-        <select
-          id="dropdown"
-          value={selectedOption}
-          onChange={handleOptionChange}
-        >
+        <select id="dropdown" value={selectedOption} onChange={handleOptionChange}>
           <option value=""></option>
-          <option value="option1">Option 1</option>
-          <option value="option2">Option 2</option>
-          <option value="option3">Option 3</option>
+          {categories.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
         </select>
       </div>
-      <button onClick={handleApplyFilters}>Apply Filters</button>
-    </>
+      <button className="apply-button" onClick={handleApplyFilters}>
+        Apply Filters
+      </button>
+    </div>
   );
 }
 
