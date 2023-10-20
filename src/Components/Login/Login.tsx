@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Navbar } from "../Navbar/Navbar";
 import "./Login.css";
 import { IsLoggedContext } from "../../Context/IsLoggedContext";
@@ -8,9 +8,12 @@ function Login() {
   const { loggedUserInfo, isLogged, checkFunction } = useContext(
     IsLoggedContext
   );
-  console.log(loggedUserInfo);
-  console.log(isLogged);
+  const [inputUser, setInputUser] = useState("");
+  const [inputPassword, setInputPassword] = useState("");
+  const [logError, setLogError] = useState(false);
   const navigate = useNavigate();
+  const handleChangeUser = (event) => setInputUser(event.target.value);
+  const handleChangePass = (event) => setInputPassword(event.target.value);
   return (
     <>
       <Navbar />
@@ -23,26 +26,38 @@ function Login() {
               alt="logo"
             />
           </div>
-          <form
-            className="userPass"
-            onSubmit={async (e) => {
-              if (await checkFunction(e.target[0].value, e.target[1].value)) {
-                navigate("/shop");
-              }
-            }}
-          >
-            <input className="login-user" type="text" placeholder="User" />
+          <div className="userPass">
+            {logError ? (
+              <h5 className="errorMsg">Error al iniciar sesion</h5>
+            ) : (
+              ""
+            )}
+            <input
+              className="login-user"
+              type="text"
+              placeholder="User"
+              onChange={handleChangeUser}
+              value={inputUser}
+            />
             <input
               className="password"
               type="password"
               placeholder="Password"
+              onChange={handleChangePass}
+              value={inputPassword}
             />
             <div className="button-container">
-              <button type="submit" className="boton">
+              <button
+                className="boton"
+                onClick={async () => {
+                  const t = await checkFunction(inputUser, inputPassword);
+                  t ? navigate("/shop") : setLogError(true);
+                }}
+              >
                 Log In
               </button>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </>
