@@ -16,18 +16,15 @@ const randomSelect = (array: string[]) => {
   return array[Math.floor(Math.random() * (max - min + 1) + min)];
 };
 
-
 const discountPrice = (price: number, discount: number) => {
   const result: number = price - price * (discount / 100);
   return result;
 };
 
-
 function Card(props: CardProps) {
   const { wishedList, clickFunctionWish } = useContext(WishedContext);
   const { cartedList, clickFunctionCart } = useContext(CartedContext);
   const { product } = props;
-
 
   return (
     <>
@@ -73,6 +70,4 @@ function Card(props: CardProps) {
   );
 }
 
-
 export { Card };
-

@@ -5,7 +5,7 @@ import { User } from "../../Types/Types";
 import { Link } from "react-router-dom";
 
 export function UserProfile() {
-  const users: User[] | undefined = useContext(UserContext);
+  const users: User[] = useContext(UserContext);
   const user: User | undefined = users ? users[0] : undefined;
   return (
     <>

@@ -2,7 +2,6 @@ import React, { useState, ChangeEvent, useEffect } from "react";
 import "./Filters.css";
 import { Product } from "../Card/Card";
 
-
 export interface FiltersData {
   textInput: string;
   slider1Value: number;
@@ -16,14 +15,12 @@ interface FiltersProps {
   products: Product[];
 }
 
-
 function Filters({ onFilterChange, products }: FiltersProps) {
   const [textInput, setTextInput] = useState("");
   const [slider1Value, setSlider1Value] = useState(0);
   const [slider2Value, setSlider2Value] = useState(0);
   const [selectedOption, setSelectedOption] = useState("");
   const categories = Array.from(new Set(products.map((product) => product.category)));
-
 
   useEffect(() => {
     if (products.length > 0) {
@@ -33,7 +30,6 @@ function Filters({ onFilterChange, products }: FiltersProps) {
       setSlider2Value(maxPrice);
     }
   }, [products]);
-
 
   const handleTextInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setTextInput(event.target.value);
@@ -117,6 +113,5 @@ function Filters({ onFilterChange, products }: FiltersProps) {
     </div>
   );
 }
-
 
 export { Filters };

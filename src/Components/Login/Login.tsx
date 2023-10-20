@@ -1,7 +1,16 @@
+import { useContext } from "react";
 import { Navbar } from "../Navbar/Navbar";
 import "./Login.css";
+import { IsLoggedContext } from "../../Context/IsLoggedContext";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const { loggedUserInfo, isLogged, checkFunction } = useContext(
+    IsLoggedContext
+  );
+  console.log(loggedUserInfo);
+  console.log(isLogged);
+  const navigate = useNavigate();
   return (
     <>
       <Navbar />
@@ -14,7 +23,14 @@ function Login() {
               alt="logo"
             />
           </div>
-          <div className="userPass">
+          <form
+            className="userPass"
+            onSubmit={async (e) => {
+              if (await checkFunction(e.target[0].value, e.target[1].value)) {
+                navigate("/shop");
+              }
+            }}
+          >
             <input className="login-user" type="text" placeholder="User" />
             <input
               className="password"
@@ -22,9 +38,11 @@ function Login() {
               placeholder="Password"
             />
             <div className="button-container">
-              <button className="boton">Log In</button>
+              <button type="submit" className="boton">
+                Log In
+              </button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </>

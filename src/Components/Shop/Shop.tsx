@@ -6,13 +6,11 @@ import { ProductContext } from "../../Context/ApiContext";
 import { Link } from "react-router-dom";
 import { Filters, FiltersData } from "../Filters/Filters";
 
-
 function Shop() {
   const products = useContext(ProductContext);
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [prices, setPrices] = useState<number[]>([]);
   const [selectedOption, setSelectedOption] = useState("");
-
 
   const handleFilterChange = (filters: FiltersData) => {
     const { textInput, slider1Value, slider2Value, selectedOption } = filters;
@@ -47,6 +45,5 @@ function Shop() {
     </>
   );
 }
-
 
 export { Shop };
