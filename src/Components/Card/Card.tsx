@@ -4,9 +4,11 @@ import { useContext } from "react";
 import { WishedContext } from "../../Context/WishedContext";
 import { CartedContext } from "../../Context/CartedContext";
 
+
 interface CardProps {
   product: Product;
 }
+
 
 const randomSelect = (array: string[]) => {
   const max = Math.ceil(array.length - 1);

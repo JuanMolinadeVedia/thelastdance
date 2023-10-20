@@ -9,6 +9,7 @@ export interface FiltersData {
   selectedOption: string;
 }
 
+
 interface FiltersProps {
   onFilterChange: (filters: FiltersData) => void;
   products: Product[];
@@ -34,17 +35,21 @@ function Filters({ onFilterChange, products }: FiltersProps) {
     setTextInput(event.target.value);
   };
 
+
   const handleSlider1Change = (event: ChangeEvent<HTMLInputElement>) => {
     setSlider1Value(Number(event.target.value));
   };
+
 
   const handleSlider2Change = (event: ChangeEvent<HTMLInputElement>) => {
     setSlider2Value(Number(event.target.value));
   };
 
+
   const handleOptionChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(event.target.value);
   };
+
 
   const handleApplyFilters = () => {
     onFilterChange({
@@ -54,6 +59,7 @@ function Filters({ onFilterChange, products }: FiltersProps) {
       selectedOption,
     });
   };
+
 
   return (
     <div className="filters-container">

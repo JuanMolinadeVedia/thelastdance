@@ -23,11 +23,13 @@ function Shop() {
     setFilteredProducts(filtered);
   };
 
+
   useEffect(() => {
     const prices = products.map((product) => product.price);
     setPrices(prices);
     setFilteredProducts(products);
   }, [products]);
+
 
   return (
     <>
