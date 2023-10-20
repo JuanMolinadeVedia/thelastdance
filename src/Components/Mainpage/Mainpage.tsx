@@ -3,6 +3,7 @@ import { Navbar } from "../Navbar/Navbar";
 import { Product } from "../../Types/Types";
 import { Card } from "../Card/Card";
 import "./Mainpage.css";
+import { Link } from "react-router-dom";
 
 function Mainpage() {
   const [topRatedCards, setTopRatedCards] = useState<Product[]>([]);
@@ -34,7 +35,9 @@ function Mainpage() {
       <div className="card-container">
         {topRatedCards.map((card: Product) => (
           // Renderizar cada tarjeta aquí
-          <Card key={card.id} product={card} />
+          <Link key={card.id} to={`/item/${card.id}`}>
+            <Card key={card.id} product={card} />
+          </Link>
         ))}
       </div>
     </>

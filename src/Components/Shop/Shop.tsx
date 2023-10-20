@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ChangeEvent } from "react";
+import React, { useState, useEffect } from "react";
 import { Card } from "../Card/Card";
 import { Navbar } from "../Navbar/Navbar";
 import { useContext } from "react";
@@ -10,8 +10,6 @@ import { Sidebar } from "../Sidebar/Sidebar";
 function Shop() {
   const products = useContext(ProductContext);
   const [filteredProducts, setFilteredProducts] = useState(products);
-  const [prices, setPrices] = useState<number[]>([]);
-  const [selectedOption, setSelectedOption] = useState("");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleFilterChange = (filters: FiltersData) => {
@@ -34,8 +32,6 @@ function Shop() {
   };
 
   useEffect(() => {
-    const prices = products.map((product) => product.price);
-    setPrices(prices);
     setFilteredProducts(products);
   }, [products]);
 
