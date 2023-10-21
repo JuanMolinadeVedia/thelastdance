@@ -1,12 +1,29 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import "./UserProfile.css";
 import { UserContext } from "../../Context/UserContext";
 import { User } from "../../Types/Types";
 import { Link } from "react-router-dom";
+import { IsLoggedContext } from "../../Context/IsLoggedContext";
 
 export function UserProfile() {
   const users: User[] = useContext(UserContext);
-  const user: User | undefined = users ? users[0] : undefined;
+  const { loggedUserInfo, isLogged } = useContext(IsLoggedContext)
+  const [user, setUser] = useState<User>()
+
+  useEffect(() => {
+    if (isLogged && loggedUserInfo) {
+      const USER_URL = `https://dummyjson.com/users/${loggedUserInfo.id}`;
+
+      async function fetchUser() {
+        const response = await fetch(USER_URL);
+        const userInfo = await response.json();
+        setUser(userInfo);
+      }
+
+      fetchUser();
+    }
+  }, [isLogged, loggedUserInfo]);
+
   return (
     <>
       <div className="user">

@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import { useContext } from "react"
+import { IsLoggedContext } from "../../Context/IsLoggedContext";
 
 function Navbar() {
+  const { isLogged } = useContext(IsLoggedContext)
   return (
     <>
       <div className="navbar-container">
@@ -13,10 +16,10 @@ function Navbar() {
         </div>
 
         <div className="sections">
-          <Link to={"/cart"}>
+          <Link to={isLogged ? "/cart" : "/login"}>
             <p>Cart</p>
           </Link>
-          <Link to={"/wishlist"}>
+          <Link to={isLogged ? "/wishlist" : "/login"}>
             <p>Wishlist</p>
           </Link>
         </div>
@@ -24,7 +27,7 @@ function Navbar() {
           <Link to={"/shop"}>
             <p>Shop</p>
           </Link>
-          <Link to={"/login"}>
+          <Link to={isLogged ? "/user" : "/login"}>
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png" />
           </Link>
         </div>
