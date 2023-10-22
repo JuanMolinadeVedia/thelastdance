@@ -10,12 +10,13 @@ const DEFAULT_USER: loggedUser = {
   gender: "none",
   image: "none",
   token: "rejected",
+  message: undefined
 };
 
 type loggedValue = {
   loggedUserInfo: loggedUser;
   isLogged: boolean;
-  checkFunction: (user: string, password: string) => Promise<boolean>;
+  checkFunction: (user: string, password: string) => Promise<loggedUser>;
 };
 type loggedUser = {
   id: number;
@@ -26,6 +27,7 @@ type loggedUser = {
   gender: string;
   image: string;
   token: string;
+  message: string | undefined
 };
 
 export const IsLoggedContext = createContext<loggedValue>({
@@ -34,7 +36,7 @@ export const IsLoggedContext = createContext<loggedValue>({
   checkFunction: () =>
     new Promise((resolve, reject) => {
       console.log("default fn");
-      resolve(false);
+      resolve(DEFAULT_USER);
     }),
 });
 
@@ -55,28 +57,14 @@ export function IsLoggedContextProvider({ children }: ChildrenContextProps) {
       }),
     });
     const user = await res.json();
-    if (user && user?.token !== "rejected") {
+    if (user.id) {
       setLogged(true);
       console.log("YOU'RE IN");
-      console.log(logged);
+      console.log(user);
     }
     setLoggedUser(user);
     return user;
   }, []);
-
-  const checkFunction = useCallback(
-    async (username: string, password: string) => {
-      const user = await fetchUser(username, password);
-      if (user.token && user.token !== "rejected" && logged) {
-        console.log("SI");
-        return true;
-      } else {
-        console.log("NO");
-        return false;
-      }
-    },
-    []
-  );
 
   const loggedValue: loggedValue = {
     loggedUserInfo: loggedUser,

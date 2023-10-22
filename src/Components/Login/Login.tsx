@@ -1,19 +1,19 @@
 import { useContext, useState } from "react";
-import { Navbar } from "../Navbar/Navbar";
-import "./Login.css";
 import { IsLoggedContext } from "../../Context/IsLoggedContext";
 import { useNavigate } from "react-router-dom";
+import { Navbar } from "../Navbar/Navbar";
+import "./Login.css";
 
 function Login() {
-  const { loggedUserInfo, isLogged, checkFunction } = useContext(
+  const { checkFunction } = useContext(
     IsLoggedContext
   );
   const [inputUser, setInputUser] = useState("");
   const [inputPassword, setInputPassword] = useState("");
   const [logError, setLogError] = useState(false);
   const navigate = useNavigate();
-  const handleChangeUser = (event) => setInputUser(event.target.value);
-  const handleChangePass = (event) => setInputPassword(event.target.value);
+  const handleChangeUser = (event: React.ChangeEvent<HTMLInputElement>) => setInputUser(event.target.value);
+  const handleChangePass = (event: React.ChangeEvent<HTMLInputElement>) => setInputPassword(event.target.value);
   return (
     <>
       <Navbar />
@@ -51,7 +51,7 @@ function Login() {
                 className="boton"
                 onClick={async () => {
                   const t = await checkFunction(inputUser, inputPassword);
-                  t ? navigate("/shop") : setLogError(true);
+                  t.id ? navigate("/shop") : setLogError(true);
                 }}
               >
                 Log In

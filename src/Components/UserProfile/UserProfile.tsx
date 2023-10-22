@@ -1,12 +1,29 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import "./UserProfile.css";
 import { UserContext } from "../../Context/UserContext";
 import { User } from "../../Types/Types";
 import { Link } from "react-router-dom";
+import { IsLoggedContext } from "../../Context/IsLoggedContext";
 
 export function UserProfile() {
   const users: User[] = useContext(UserContext);
-  const user: User | undefined = users ? users[0] : undefined;
+  const { loggedUserInfo, isLogged } = useContext(IsLoggedContext)
+  const [user, setUser] = useState<User>()
+
+  useEffect(() => {
+    if (isLogged && loggedUserInfo) {
+      const USER_URL = `https://dummyjson.com/users/${loggedUserInfo.id}`;
+
+      async function fetchUser() {
+        const response = await fetch(USER_URL);
+        const userInfo = await response.json();
+        setUser(userInfo);
+      }
+
+      fetchUser();
+    }
+  }, [isLogged, loggedUserInfo]);
+
   return (
     <>
       <div className="user">
@@ -17,13 +34,15 @@ export function UserProfile() {
               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAb1BMVEX///8eIB0ABwAABQAAAACfn56jpKIbHRrDw8MZHBjMzMzAwcAbHhrExcQDCQDS0tIVGBQKDgi4ubjl5eVxcnEQEw/29vbe396ur66YmJdeX13Z2di1trUlJyRRUlFlZmRERkQ5Ozg0NjN4eXhTVFLuQuL+AAADfUlEQVR4nO2dbU/bQBCE/XLFdvxSO06CAwQI9P//xiaASiDjVqrOWt3cPN8jzeh2vbt3ji9JhBBCCCGEEEIIIYQQQgghhBBC/AfjtN9Po7WK5Rg3znWdc3f31koWYlUN6Rtb92CtZRFKV6QfFK60VrMA9afBNK0OO2s93qmzC4Np6iZrQb5p3ReDaf9orcgz3w2eFtFakl/qK4NkDr/l4NvTdLAW5ZPyegXT7ZO1Ko8gg6mrrWX5o86Bwf7ZWpY/StdcG6yGW2td3oAhWnU/rXV5A5SJ8wqurHV5A5QJLoMwRIucx+B1q3ZeQaccDIYyQ2WiIzLIXiawwZzHIH2ZaFGrVjgegzhEM6IQZS8T9DmIW7WM3KBatYAoc7VqYYNDlMkge5mAAy9Tq4YnerVq4UCfg2rVQqeGnQxViCKDRBu/atVCJ9IyQd+qMW38qlULHJyD9FsWTDmI3pOptkwrqMOXsFGZCB3692T4J3r2HNThS+jgEGWqg+xlgv7wRa1a6NDnoA5fQqeGA++BxyCc6NP+6eZHwEzt7sIgCNGzxSxknHOb8e8Gw2d4LwX3AwpRDqrh/Cg59tY6FqQ/JsnaWatYFLdONsxLeFrETfLC+ph5p3hJrCUszYF+DY/JZmstYlG2r/TP0pK8Hm4f33oa3kzs+1vqvrTpio/5D+6xpefZIg+Y02zx+md+atGR9mk+nG4C5qG9/JRTiSwWKc+MH8FmcBwWO7QZRXSsFsE7UHEEKn5NqLXW5ZGyQ6s4MFmMIlD5LaJDNrJcxEWDyWIMgYosNlyBCotGRmURByqTxZlA5cpF/gYO1cWGKhcjeKLO1EUqi+ijcw3V99bhm25NzmQxhkDFFom+gzzTwHFZxKvIlYuwu4nAIlOgwj9bcllU0WCghMc2VBZhA8dlcSZQVTSCoo62gWOyGEHRaNFfaAu3ttblkZmiwWQxhkDFm4xMqzhTNKgsKhcJgA0cWS7CYxsqi7CBa8gClX8V8bENk0V8bENlcaZoyGJQzDRwTLdyx9vAcVmEUz/TX1HwXbJHa1k+wfcBM8UpvtP5zlqVV9C93J21KL/Q360OikbD5vDKYv/LWpF3vuWim6wF+edLLlaH3b9/ERwXRYPr4PSTVTN8FMOMabq4ZNw413XO3d1bK1mOcdrvp9FahRBCCCGEEEIIIYQQQgghhBBCRMtv7PxEggm3iH4AAAAASUVORK5CYII="
             />
           </Link>
+          <div className="phone-user-name">
+            <h1>
+              {user?.firstName} {user?.lastName}
+            </h1>
+          </div>
           <div className="user-img">
             <img src={user?.image} alt="" />
           </div>
           <div className="user-info">
-            <h1>
-              {user?.firstName} {user?.lastName}
-            </h1>
             <div className="user-email">
               <img
                 src="https://img.freepik.com/premium-vector/mail-simple-icon-white-mail-icon-black-circle-vector-illustration-stock-image_797523-1729.jpg"
@@ -66,7 +85,7 @@ export function UserProfile() {
         </div>
         <div className="user-rightside">
           <div className="inner-rightside">
-            <div className="name-rightside"></div>
+            <div className="name-rightside">{user?.firstName} {user?.lastName}</div>
             <div className="name-buttons">
               <Link to={"/cart"}>
                 <button>
