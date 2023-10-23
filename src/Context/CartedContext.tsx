@@ -1,5 +1,6 @@
-import { createContext, useCallback, useState } from "react";
+import { createContext, useCallback, useState, useContext } from "react";
 import { Product, ChildrenContextProps } from "../Types/Types";
+import { IsLoggedContext } from "./IsLoggedContext";
 
 const DEFAULT_VALUE = {
   cartedList: [],
@@ -14,25 +15,39 @@ export type CartedContextValue = {
   clickFunctionCart: (e: Product) => void;
 };
 
+const getCarted = (id: number) => {
+  const cartedString = sessionStorage.getItem(`carted_${id}`);
+  const cartedData: Product[] = JSON.parse(cartedString);
+  return cartedData
+};
+
+
+const saveCarted = (id: number, cartedData: Product[]) => {
+  sessionStorage.setItem(`carted_${id}`, JSON.stringify(cartedData));
+};
+
 export const CartedContext = createContext<CartedContextValue>(DEFAULT_VALUE);
 
 export function CartedContextProvider({ children }: ChildrenContextProps) {
-  const [carted, setCarted] = useState<Product[]>([]);
+
+  const { loggedUserInfo } = useContext(IsLoggedContext)
+  const cartedData = getCarted(loggedUserInfo.id)
+
+  const [carted, setCarted] = useState<Product[]>(cartedData ? cartedData : []);
 
   const handleClickCart = useCallback(
     (p: Product) => {
       console.log(carted);
       setCarted([...carted, p]);
+      saveCarted(loggedUserInfo.id, [...carted, p])
     },
     [carted]
   );
-
   return (
-    <CartedContext.Provider
-      value={{
-        cartedList: carted,
-        clickFunctionCart: handleClickCart,
-      }}
+    <CartedContext.Provider value={{
+      cartedList: carted,
+      clickFunctionCart: handleClickCart,
+    }}
     >
       {children}
     </CartedContext.Provider>
