@@ -6,6 +6,7 @@ import { ProductContext } from "../../Context/ApiContext";
 import { Link } from "react-router-dom";
 import { FiltersData } from "../Filters/Filters";
 import { Sidebar } from "../Sidebar/Sidebar";
+import "../Sidebar/Sidebar.css";
 
 function Shop() {
   const products = useContext(ProductContext);

@@ -1,12 +1,6 @@
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-}
 .product {
   box-shadow: 0px 0px 10px rgb(100, 100, 100);
-  width: 500px;
+  width: 30%;
   height: auto;
   padding: 10px;
   margin: 10px;
@@ -19,8 +13,10 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 .image img {
-  width: 300px;
+  width: 80%;
   height: 300px;
+  object-fit: contain;
+  border-radius: 25px;
 }
 p.discountPrice {
   color: #00a650;
@@ -28,7 +24,7 @@ p.discountPrice {
   font-size: 30px;
 }
 p.description {
-  width: 400px;
+  width: 15px;
   height: 60px;
   overflow: auto;
 }
@@ -68,6 +64,7 @@ p.description {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  color: orangered;
 }
 
 .wishlist-button {
@@ -79,8 +76,4 @@ p.description {
 .cart-button {
   background-color: #00ccff;
   color: #fff;
-}
-a {
-  text-decoration: none;
-  color: #000;
 }

@@ -3,12 +3,14 @@ import "./Card.css";
 import { useContext } from "react";
 import { WishedContext } from "../../Context/WishedContext";
 import { CartedContext } from "../../Context/CartedContext";
-
+import {
+  ReceiptLongIcon,
+  ShoppingCartIcon,
+} from "../../assets/Imports/Imports";
 
 interface CardProps {
   product: Product;
 }
-
 
 const randomSelect = (array: string[]) => {
   const max = Math.ceil(array.length - 1);
@@ -22,8 +24,8 @@ const discountPrice = (price: number, discount: number) => {
 };
 
 function Card(props: CardProps) {
-  const { wishedList, clickFunctionWish } = useContext(WishedContext);
-  const { cartedList, clickFunctionCart } = useContext(CartedContext);
+  const { clickFunctionWish } = useContext(WishedContext);
+  const { clickFunctionCart } = useContext(CartedContext);
   const { product } = props;
 
   return (
@@ -42,7 +44,10 @@ function Card(props: CardProps) {
         </div>
         <div className="price">
           <p className="discountPrice">
-            ${Math.floor(discountPrice(product.price, product.discountPercentage))}
+            $
+            {Math.floor(
+              discountPrice(product.price, product.discountPercentage)
+            )}
           </p>
         </div>
         <div className="button-wrapper">
@@ -53,7 +58,7 @@ function Card(props: CardProps) {
               clickFunctionWish(product);
             }}
           >
-            Wishlist
+            <ReceiptLongIcon />
           </button>
           <button
             className="button-cart"
@@ -62,7 +67,7 @@ function Card(props: CardProps) {
               clickFunctionCart(product);
             }}
           >
-            Cart
+            <ShoppingCartIcon />
           </button>
         </div>
       </div>
