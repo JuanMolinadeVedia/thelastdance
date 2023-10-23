@@ -51,7 +51,7 @@ function Login() {
                 className="boton"
                 onClick={async () => {
                   const t = await checkFunction(inputUser, inputPassword);
-                  t.id ? navigate("/shop") : setLogError(true);
+                  t.id ? navigate(-1) : setLogError(true);
                 }}
               >
                 Log In

@@ -1,5 +1,6 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useContext, useCallback } from "react";
 import { Product, ChildrenContextProps } from "../Types/Types";
+import { IsLoggedContext } from "./IsLoggedContext";
 
 export type WishedContextValue = {
   wishedList: Product[];
@@ -11,21 +12,39 @@ const DEFAULT_VALUE = {
   clickFunctionWish: (e: Product) => console.log(e),
 };
 
+const getWished = (id: number) => {
+  const wishedString = sessionStorage.getItem(`wished_${id}`);
+  const wishedData: Product[] = JSON.parse(wishedString);
+  return wishedData
+};
+
+
+const saveWished = (id: number, wishedData: Product[]) => {
+  sessionStorage.setItem(`wished_${id}`, JSON.stringify(wishedData));
+};
+
 export const WishedContext = createContext<WishedContextValue>(DEFAULT_VALUE);
 
 export function WishedContextProvider({ children }: ChildrenContextProps) {
-  const [wished, setWished] = useState<Product[]>([]);
-  const wishedArray: Product[] = [];
-  const wishedValue: WishedContextValue = {
-    wishedList: wished,
-    clickFunctionWish: handleClickWish,
-  };
-  function handleClickWish(e: Product) {
-    wishedArray.push(e);
-    setWished(wishedArray);
-  }
+
+  const { loggedUserInfo } = useContext(IsLoggedContext)
+  const wishedData = getWished(loggedUserInfo.id)
+  const [wished, setWished] = useState<Product[]>(wishedData ? wishedData : []);
+
+  const handleClickWish = useCallback(
+    (p: Product) => {
+      console.log(wished);
+      setWished([...wished, p]);
+      saveWished(loggedUserInfo.id, [...wished, p])
+      console.log(getWished(loggedUserInfo.id))
+    },
+    [wished]
+  );
   return (
-    <WishedContext.Provider value={wishedValue}>
+    <WishedContext.Provider value={{
+      wishedList: wished,
+      clickFunctionWish: handleClickWish,
+    }}>
       {children}
     </WishedContext.Provider>
   );
