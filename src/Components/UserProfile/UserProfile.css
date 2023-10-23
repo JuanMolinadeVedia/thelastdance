@@ -195,7 +195,10 @@
     flex: 1 1 40%;
     margin-bottom: 0;
   }
-
+  .log-out-container button{
+    display: flex;
+    color: red;
+  }
   .user-phone,
   .user-email,
   .user-address,
