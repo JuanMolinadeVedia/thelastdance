@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import { useContext } from "react"
+import { useContext } from "react";
 import { IsLoggedContext } from "../../Context/IsLoggedContext";
 
 function Navbar() {
-  const { isLogged } = useContext(IsLoggedContext)
+  const { isLogged, loggedUserInfo } = useContext(IsLoggedContext);
   return (
     <>
       <div className="navbar-container">
@@ -28,7 +28,13 @@ function Navbar() {
             <p>Shop</p>
           </Link>
           <Link to={isLogged ? "/user" : "/login"}>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png" />
+            <img
+              src={
+                isLogged
+                  ? loggedUserInfo.image
+                  : "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"
+              }
+            />
           </Link>
         </div>
       </div>
