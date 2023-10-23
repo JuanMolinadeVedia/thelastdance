@@ -18,6 +18,7 @@ type loggedValue = {
   isLogged: boolean;
   checkFunction: (user: string, password: string) => Promise<loggedUser>;
 };
+
 type loggedUser = {
   id: number;
   username: string;
@@ -40,9 +41,22 @@ export const IsLoggedContext = createContext<loggedValue>({
     }),
 });
 
+const getUserData = () => {
+  const userString = sessionStorage.getItem('user');
+  const userData: loggedUser = JSON.parse(userString);
+  return userData
+};
+
+
+const saveData = (userData: loggedUser) => {
+  sessionStorage.setItem('user', JSON.stringify(userData));
+};
+
+
 export function IsLoggedContextProvider({ children }: ChildrenContextProps) {
-  const [loggedUser, setLoggedUser] = useState<loggedUser>(DEFAULT_USER);
-  const [logged, setLogged] = useState(false);
+  const userData = getUserData()
+  const [loggedUser, setLoggedUser] = useState<loggedUser>(userData ? userData : DEFAULT_USER);
+  const [logged, setLogged] = useState(userData ? true : false);
 
   const fetchUser = useCallback(async (username: string, password: string) => {
     const res = await fetch("https://dummyjson.com/auth/login", {
@@ -63,6 +77,7 @@ export function IsLoggedContextProvider({ children }: ChildrenContextProps) {
       console.log(user);
     }
     setLoggedUser(user);
+    saveData(user)
     return user;
   }, []);
 
