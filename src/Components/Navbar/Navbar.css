@@ -8,6 +8,10 @@
   padding: 10px;
 }
 
+.navbar-container a {
+  text-decoration: none;
+}
+
 .branding,
 .sections,
 .nav-user {
@@ -16,11 +20,13 @@
   align-items: center;
   gap: 10px;
 }
+
 .branding img,
 .nav-user img {
   max-height: 70px;
   border-radius: 10px;
 }
+
 .branding p,
 .sections p,
 .nav-user p {
