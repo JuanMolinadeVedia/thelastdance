@@ -31,18 +31,23 @@ function Card(props: CardProps) {
   return (
     <>
       <div className="product">
-        <div className="card-info">
-          <div className="image">
+        <div className="product-info">
+          <div className="product-image">
             <img
               className="productImg"
               src={randomSelect(product.images)}
               alt={product.title}
             />
           </div>
-          <h3 className="title">{product.title}</h3>
-          <p className="description">{product.description}</p>
+          <div className="product-title">
+            <h3 className="title">{product.title}</h3>
+          </div>
+          <div className="product-description">
+            <p className="description">{product.description}</p>
+          </div>
         </div>
-        <div className="price">
+        <div className="product-price">
+          <p className="price">${product.price}</p>
           <p className="discountPrice">
             $
             {Math.floor(

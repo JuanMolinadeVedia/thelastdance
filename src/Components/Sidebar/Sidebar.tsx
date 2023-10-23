@@ -1,4 +1,4 @@
-import React from "react";
+import { Product } from "../../Types/Types";
 import { Filters, FiltersData } from "../Filters/Filters";
 import "./Sidebar.css";
 
