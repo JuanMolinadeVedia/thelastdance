@@ -15,15 +15,19 @@ function Navbar() {
           <p>Zarpado ecommerce</p>
         </div>
 
-        <div className="sections">
-          <Link to={isLogged ? "/cart" : "/login"}>
-            <p>Cart</p>
-          </Link>
-          <Link to={isLogged ? "/wishlist" : "/login"}>
-            <p>Wishlist</p>
-          </Link>
-        </div>
         <div className="nav-user">
+          {isLogged ? (
+            <div className="sections">
+              <Link to={isLogged ? "/cart" : "/login"}>
+                <p>Cart</p>
+              </Link>
+              <Link to={isLogged ? "/wishlist" : "/login"}>
+                <p>Wishlist</p>
+              </Link>
+            </div>
+          ) : (
+            ""
+          )}
           <Link to={"/shop"}>
             <p>Shop</p>
           </Link>
