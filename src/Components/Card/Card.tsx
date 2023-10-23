@@ -4,11 +4,9 @@ import { useContext } from "react";
 import { WishedContext } from "../../Context/WishedContext";
 import { CartedContext } from "../../Context/CartedContext";
 
-
 interface CardProps {
   product: Product;
 }
-
 
 const randomSelect = (array: string[]) => {
   const max = Math.ceil(array.length - 1);
@@ -42,7 +40,10 @@ function Card(props: CardProps) {
         </div>
         <div className="price">
           <p className="discountPrice">
-            ${Math.floor(discountPrice(product.price, product.discountPercentage))}
+            $
+            {Math.floor(
+              discountPrice(product.price, product.discountPercentage)
+            )}
           </p>
         </div>
         <div className="button-wrapper">
