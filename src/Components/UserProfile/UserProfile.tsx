@@ -1,12 +1,15 @@
 import { useContext, useState, useEffect } from "react";
 import "./UserProfile.css";
-import { UserContext } from "../../Context/UserContext";
 import { User } from "../../Types/Types";
 import { Link } from "react-router-dom";
 import { IsLoggedContext } from "../../Context/IsLoggedContext";
+import {
+  LogoutIcon,
+  ShoppingCartIcon,
+  ReceiptLongIcon,
+} from "../../assets/Imports/Imports.tsx";
 
 export function UserProfile() {
-  const users: User[] = useContext(UserContext);
   const { loggedUserInfo, isLogged, logOut } = useContext(IsLoggedContext);
   const [user, setUser] = useState<User>();
 
@@ -82,14 +85,15 @@ export function UserProfile() {
             </div>
             <div className="log-out-container">
               <Link to="/">
-                <button
-                  className="log-out-button"
+                <div
+                  id="log-out-button"
                   onClick={() => {
                     logOut();
                   }}
                 >
+                  <LogoutIcon />
                   Log Out
-                </button>
+                </div>
               </Link>
             </div>
           </div>
@@ -101,10 +105,16 @@ export function UserProfile() {
             </div>
             <div className="name-buttons">
               <Link to={"/cart"}>
-                <button>CART</button>
+                <button>
+                  <ShoppingCartIcon />
+                  CART
+                </button>
               </Link>
               <Link to={"/wishlist"}>
-                <button>WISHLIST</button>
+                <button>
+                  <ReceiptLongIcon />
+                  WISHLIST
+                </button>
               </Link>
             </div>
             <div className="boughtrecently">
