@@ -7,20 +7,19 @@ import { IsLoggedContext } from "../../Context/IsLoggedContext";
 
 export function UserProfile() {
   const users: User[] = useContext(UserContext);
-  const { loggedUserInfo, isLogged } = useContext(IsLoggedContext)
-  const [user, setUser] = useState<User>()
+  const { loggedUserInfo, isLogged, logOut } = useContext(IsLoggedContext);
+  const [user, setUser] = useState<User>();
 
+  const USER_URL = `https://dummyjson.com/users/${loggedUserInfo.id}`;
+
+  async function fetchLoggedUser() {
+    const response = await fetch(USER_URL);
+    const userInfo = await response.json();
+    setUser(userInfo);
+  }
   useEffect(() => {
     if (isLogged && loggedUserInfo) {
-      const USER_URL = `https://dummyjson.com/users/${loggedUserInfo.id}`;
-
-      async function fetchUser() {
-        const response = await fetch(USER_URL);
-        const userInfo = await response.json();
-        setUser(userInfo);
-      }
-
-      fetchUser();
+      fetchLoggedUser();
     }
   }, [isLogged, loggedUserInfo]);
 
@@ -81,11 +80,22 @@ export function UserProfile() {
               />
               <p className="additional-info">{user?.domain}</p>
             </div>
+            <Link to="/">
+              <button
+                onClick={() => {
+                  logOut();
+                }}
+              >
+                Log Out
+              </button>
+            </Link>
           </div>
         </div>
         <div className="user-rightside">
           <div className="inner-rightside">
-            <div className="name-rightside">{user?.firstName} {user?.lastName}</div>
+            <div className="name-rightside">
+              {user?.firstName} {user?.lastName}
+            </div>
             <div className="name-buttons">
               <Link to={"/cart"}>
                 <button>

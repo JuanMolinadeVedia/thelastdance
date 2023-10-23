@@ -10,13 +10,14 @@ const DEFAULT_USER: loggedUser = {
   gender: "none",
   image: "none",
   token: "rejected",
-  message: undefined
+  message: undefined,
 };
 
 type loggedValue = {
   loggedUserInfo: loggedUser;
   isLogged: boolean;
   checkFunction: (user: string, password: string) => Promise<loggedUser>;
+  logOut: () => string;
 };
 
 type loggedUser = {
@@ -28,8 +29,10 @@ type loggedUser = {
   gender: string;
   image: string;
   token: string;
-  message: string | undefined
+  message: string | undefined;
 };
+
+const nonSense = () => "no";
 
 export const IsLoggedContext = createContext<loggedValue>({
   loggedUserInfo: DEFAULT_USER,
@@ -39,23 +42,24 @@ export const IsLoggedContext = createContext<loggedValue>({
       console.log("default fn");
       resolve(DEFAULT_USER);
     }),
+  logOut: nonSense,
 });
 
 const getUserData = () => {
-  const userString = sessionStorage.getItem('user');
+  const userString = sessionStorage.getItem("user");
   const userData: loggedUser = JSON.parse(userString);
-  return userData
+  return userData;
 };
-
 
 const saveData = (userData: loggedUser) => {
-  sessionStorage.setItem('user', JSON.stringify(userData));
+  sessionStorage.setItem("user", JSON.stringify(userData));
 };
 
-
 export function IsLoggedContextProvider({ children }: ChildrenContextProps) {
-  const userData = getUserData()
-  const [loggedUser, setLoggedUser] = useState<loggedUser>(userData ? userData : DEFAULT_USER);
+  const userData = getUserData();
+  const [loggedUser, setLoggedUser] = useState<loggedUser>(
+    userData ? userData : DEFAULT_USER
+  );
   const [logged, setLogged] = useState(userData ? true : false);
 
   const fetchUser = useCallback(async (username: string, password: string) => {
@@ -77,14 +81,22 @@ export function IsLoggedContextProvider({ children }: ChildrenContextProps) {
       console.log(user);
     }
     setLoggedUser(user);
-    saveData(user)
+    saveData(user);
     return user;
   }, []);
+
+  const logOut = () => {
+    localStorage.removeItem("user");
+    setLogged(false);
+    console.log(localStorage.getItem("user"));
+    return "Done";
+  };
 
   const loggedValue: loggedValue = {
     loggedUserInfo: loggedUser,
     isLogged: logged,
     checkFunction: fetchUser,
+    logOut,
   };
   return (
     <IsLoggedContext.Provider value={loggedValue}>
