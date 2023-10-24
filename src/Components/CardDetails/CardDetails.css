@@ -1,110 +1,295 @@
-.card-details-page {
-  height: 77vh;
+@media only screen and (min-width:992px) {
+
+
+
+  .card-details-page {
+    height: 77vh;
+  }
+
+  .details-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    height: 100%;
+    background-color: white;
+  }
+
+  .details-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    height: 75%;
+    background-color: gray;
+    border-radius: 20px;
+  }
+
+  .details-images {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    width: 65%;
+  }
+
+  .details-main-image {
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+
+  .details-alt-images {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .details-alt-image {
+    padding: 2px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  .alt-images {
+    border-radius: 7px;
+  }
+
+  .right-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f5f5f5;
+    height: 80%;
+    padding: 2em;
+    border-radius: 20px;
+  }
+
+  .details-details {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .details-buy {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+
+  .details-buy p {
+    width: 70%;
+  }
+
+  .button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px;
+  }
+
+  .cardbutton {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  h2,
+  h3,
+  p {
+    font-family: Arial, Helvetica, sans-serif;
+  }
 }
 
-.details-card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  height: 100%;
-  background-color: white;
-}
-
-.details-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 20px;
-  height: 75%;
-  background-color: gray;
-  border-radius: 20px;
-}
-
-.details-images {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  justify-content: space-around;
-  gap: 10px;
-  width: 65%;
-}
-
-.details-main-image {
-  height: 300px;
-  object-fit: cover;
-  border-radius: 15px;
-}
-
-.details-alt-images {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.details-alt-image {
-  padding: 2px;
-  object-fit: cover;
-  cursor: pointer;
-}
-
-.alt-images {
-  border-radius: 7px;
-}
-
-.right-details {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #f5f5f5;
-  height: 80%;
-  padding: 2em;
-  border-radius: 20px;
-}
-
-.details-details {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-}
-
-.details-buy {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
-}
-
-.details-buy p {
-  width: 70%;
-}
-
-.button-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  gap: 20px;
-}
-
-.cardbutton {
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-h2,
-h3,
-p {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@media only screen and (max-width: 912px) {
+@media only screen and (min-width: 768px) and (max-width:992px) {
   .details-inner {
     display: flex;
     justify-content: center;
+    flex-direction: column
+  }
+
+  .details-card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column
+  }
+
+  .details-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .details-main-image {
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+
+  .details-alt-images {
+    display: flex;
     flex-direction: row;
+    gap: 10px;
+  }
+
+  .details-alt-image {
+    padding: 2px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  .alt-images {
+    border-radius: 7px;
+  }
+
+  .right-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f5f5f5;
+    height: 80%;
+    padding: 2em;
+    border-radius: 20px;
+  }
+
+  .details-details {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .details-buy {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+
+  .details-buy p {
+    width: 70%;
+  }
+
+  .button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px;
+  }
+
+  .cardbutton {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  h2,
+  h3,
+  p {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .details-inner {
+    display: flex;
+    justify-content: center;
+    flex-direction: column
+  }
+
+  .details-card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column
+  }
+
+  .details-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .details-main-image {
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+
+  .details-alt-images {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .details-alt-image {
+    padding: 2px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  .alt-images {
+    border-radius: 7px;
+  }
+
+  .right-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f5f5f5;
+    height: 80%;
+    padding: 2em;
+    border-radius: 20px;
+  }
+
+  .details-details {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .details-buy {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+
+  .details-buy p {
+    width: 70%;
+  }
+
+  .button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px;
+  }
+
+  .cardbutton {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  h2,
+  h3,
+  p {
+    font-family: Arial, Helvetica, sans-serif;
   }
 }
