@@ -4,6 +4,12 @@ import { useContext } from "react";
 import { WishedContext } from "../../Context/WishedContext";
 import { CartedContext } from "../../Context/CartedContext";
 
+import {
+  ReceiptLongIcon,
+  ShoppingCartIcon,
+} from "../../assets/Imports/Imports";
+
+
 interface CardProps {
   product: Product;
 }
@@ -20,25 +26,30 @@ const discountPrice = (price: number, discount: number) => {
 };
 
 function Card(props: CardProps) {
-  const { wishedList, clickFunctionWish } = useContext(WishedContext);
-  const { cartedList, clickFunctionCart } = useContext(CartedContext);
+  const { clickFunctionWish } = useContext(WishedContext);
+  const { clickFunctionCart } = useContext(CartedContext);
   const { product } = props;
 
   return (
     <>
       <div className="product">
-        <div className="card-info">
-          <div className="image">
+        <div className="product-info">
+          <div className="product-image">
             <img
               className="productImg"
               src={randomSelect(product.images)}
               alt={product.title}
             />
           </div>
-          <h3 className="title">{product.title}</h3>
-          <p className="description">{product.description}</p>
+          <div className="product-title">
+            <h3 className="title">{product.title}</h3>
+          </div>
+          <div className="product-description">
+            <p className="description">{product.description}</p>
+          </div>
         </div>
-        <div className="price">
+        <div className="product-price">
+          <p className="price">${product.price}</p>
           <p className="discountPrice">
             $
             {Math.floor(
@@ -54,7 +65,7 @@ function Card(props: CardProps) {
               clickFunctionWish(product);
             }}
           >
-            Wishlist
+            <ReceiptLongIcon />
           </button>
           <button
             className="button-cart"
@@ -63,7 +74,7 @@ function Card(props: CardProps) {
               clickFunctionCart(product);
             }}
           >
-            Cart
+            <ShoppingCartIcon />
           </button>
         </div>
       </div>

@@ -47,8 +47,10 @@ export const IsLoggedContext = createContext<loggedValue>({
 
 const getUserData = () => {
   const userString = sessionStorage.getItem("user");
-  const userData: loggedUser = JSON.parse(userString);
-  return userData;
+  if (userString) {
+    const userData: loggedUser = JSON.parse(userString);
+    return userData;
+  }
 };
 
 const saveData = (userData: loggedUser) => {

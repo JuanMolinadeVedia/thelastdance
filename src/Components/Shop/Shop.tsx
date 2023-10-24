@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Card } from "../Card/Card";
 import { Navbar } from "../Navbar/Navbar";
 import { useContext } from "react";
@@ -6,6 +6,8 @@ import { ProductContext } from "../../Context/ApiContext";
 import { Link } from "react-router-dom";
 import { FiltersData } from "../Filters/Filters";
 import { Sidebar } from "../Sidebar/Sidebar";
+import { ListIcon } from "../../assets/Imports/Imports";
+import "../Sidebar/Sidebar.css";
 
 function Shop() {
   const products = useContext(ProductContext);
@@ -39,9 +41,11 @@ function Shop() {
     <>
       <Navbar />
       <div className="container">
-        <button className="sidebar-toggle" onClick={toggleSidebar}>
-          Display Filters
-        </button>
+        <div className="sidebar-button">
+          <button className="sidebar-toggle" onClick={toggleSidebar}>
+            <ListIcon />
+          </button>
+        </div>
         {isSidebarOpen && (
           <Sidebar onFilterChange={handleFilterChange} products={products} />
         )}
