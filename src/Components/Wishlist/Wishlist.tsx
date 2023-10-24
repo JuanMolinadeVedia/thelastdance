@@ -12,7 +12,7 @@ function Wishlist() {
   return (
     <>
       <Navbar />
-      <section className="wished-container">
+      <section className="card-container">
         {wishedList?.map((item) => {
           return (
             <Link key={item.id} to={`/item/${item.id}`}>
