@@ -71,7 +71,9 @@
   padding-top: 2em;
   height: auto;
 }
-.log-out-container a{
+
+.log-out-container a {
+  text-decoration: none;
   display: flex;
   align-items: center;
   color: red;
@@ -203,9 +205,11 @@
     flex: 1 1 40%;
     margin-bottom: 0;
   }
-  #log-out-button{
+
+  #log-out-button {
     display: flex;
   }
+
   .user-phone,
   .user-email,
   .user-address,
