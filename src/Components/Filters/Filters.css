@@ -24,7 +24,7 @@ label {
   font-weight: bold;
 }
 
-input[type="text"],
+input#textInput,
 input[type="range"],
 select {
   width: 200px;
