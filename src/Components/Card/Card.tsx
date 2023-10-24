@@ -3,10 +3,12 @@ import "./Card.css";
 import { useContext } from "react";
 import { WishedContext } from "../../Context/WishedContext";
 import { CartedContext } from "../../Context/CartedContext";
+
 import {
   ReceiptLongIcon,
   ShoppingCartIcon,
 } from "../../assets/Imports/Imports";
+
 
 interface CardProps {
   product: Product;
