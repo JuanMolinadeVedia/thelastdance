@@ -1,6 +1,7 @@
 .login {
     background-color: #222;
     display: flex;
+    width: auto;
     align-items: center;
     padding: 1em;
     border-radius: 10px;
@@ -45,7 +46,7 @@
     color: orangered;
 }
 
-.loginimg {
+.login img {
     border-radius: 10px;
 }
 
@@ -59,5 +60,56 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 75vh;
+    height: 88.8vh;
+    background-color: #FA7720;
+}
+
+@media screen and (max-width:660px) {
+    .body {
+        padding-top: 3em;
+        background-color: #FA7720;
+        height: 81vh;
+    }
+
+    .login {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 70vh;
+    }
+
+    .userPass {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:660px) and (max-width:780px) {
+    .body {
+        background-color: #FA7720;
+    }
+}
+
+@media screen and (min-width: 780px) and (max-width:840px) {
+    div.login {
+        width: 70%;
+    }
+
+    .body {
+        background-color: #FA7720;
+    }
+}
+
+@media screen and (min-width: 840px) and (max-width:900px) {
+    div.login {
+        width: 65%;
+    }
+
+    .body {
+        background-color: #FA7720;
+    }
+
 }
