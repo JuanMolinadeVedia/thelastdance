@@ -1,1 +1,12 @@
-
+.wished-container {
+    top: 0;
+    position: absolute;
+    z-index: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 0.5fr));
+    position: relative;
+  }
+.wished-container a{
+    text-decoration: none;
+    color: black;
+}

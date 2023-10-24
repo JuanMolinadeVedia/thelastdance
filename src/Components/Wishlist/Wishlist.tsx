@@ -7,8 +7,7 @@ import { Link } from "react-router-dom";
 import { Card } from "../Card/Card";
 
 function Wishlist() {
-  const { wishedList, clickFunctionCart }: WishedContextValue =
-    useContext(WishedContext);
+  const { wishedList }: WishedContextValue = useContext(WishedContext);
   return (
     <>
       <Navbar />
