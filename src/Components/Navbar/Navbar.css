@@ -1,39 +1,96 @@
-.navbar-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  max-height: 70px;
-  max-width: 100%;
-  background: #333;
-  padding: 10px;
+@media only screen and (min-width:600px) {
+
+  .navbar-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-height: 70px;
+    max-width: 100%;
+    background: #333;
+    padding: 10px;
+  }
+
+  .navbar-container a {
+    text-decoration: none;
+  }
+
+  .branding,
+  .sections,
+  .nav-user {
+    display: flex;
+    max-height: 70px;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .branding img,
+  .nav-user img {
+    max-height: 70px;
+    border-radius: 10px;
+  }
+
+  .branding p,
+  .sections p,
+  .nav-user p {
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
 }
 
-.navbar-container a {
-  text-decoration: none;
-}
+@media only screen and (max-width:600px) {
+  .navbar-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-height: 70px;
+    max-width: 100%;
+    background: #333;
+    padding: 10px;
+  }
 
-.branding,
-.sections,
-.nav-user {
-  display: flex;
-  max-height: 70px;
-  align-items: center;
-  gap: 10px;
-}
+  .navbar-container a {
+    text-decoration: none;
+  }
 
-.branding img,
-.nav-user img {
-  max-height: 70px;
-  border-radius: 10px;
-}
+  .sections {
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+    gap: 10px;
+    padding-right: 3px;
+  }
 
-.branding p,
-.sections p,
-.nav-user p {
-  color: #fff;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  .nav-user {
+    display: flex;
+    max-height: 70px;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .branding img,
+  .nav-user img {
+    max-height: 70px;
+    border-radius: 10px;
+  }
+
+  .sections p,
+  .nav-user p {
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .navbar-page-name {
+    display: none;
+    color: white;
+  }
 }
