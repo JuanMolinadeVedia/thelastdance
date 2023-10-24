@@ -24,6 +24,7 @@ label {
   font-weight: bold;
 }
 
+<<<<<<< HEAD
 input#text{
   width: 200px;
   padding: 0.5rem;
@@ -31,6 +32,9 @@ input#text{
   border: 1px solid #ccc;
 }
 
+=======
+input#textInput,
+>>>>>>> 0279634a5c99252bc235e4a9af739574ed06072c
 input[type="range"],
 select {
   width: 200px;

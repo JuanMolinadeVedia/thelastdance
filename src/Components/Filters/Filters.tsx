@@ -1,6 +1,6 @@
-import React, { useState, ChangeEvent, useEffect } from "react";
+import { useState, ChangeEvent, useEffect } from "react";
 import "./Filters.css";
-import { Product } from "../Card/Card";
+import { Product } from "../../Types/Types";
 
 export interface FiltersData {
   textInput: string;
