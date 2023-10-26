@@ -88,7 +88,7 @@ export function UserProfile() {
                 <div
                   id="log-out-button"
                   onClick={() => {
-                    logOut();
+                    logOut(user?.id ? user.id : 0);
                   }}
                 >
                   <LogoutIcon />

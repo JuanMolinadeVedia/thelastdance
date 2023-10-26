@@ -33,10 +33,12 @@ export function WishedContextProvider({ children }: ChildrenContextProps) {
 
   const handleClickWish = useCallback(
     (p: Product) => {
-      console.log(wished);
-      setWished([...wished, p]);
-      saveWished(loggedUserInfo.id, [...wished, p])
-      console.log(getWished(loggedUserInfo.id))
+      if (!wished.includes(p)) {
+        console.log(wished);
+        setWished([...wished, p]);
+        saveWished(loggedUserInfo.id, [...wished, p])
+        console.log(getWished(loggedUserInfo.id))
+      }
     },
     [wished]
   );

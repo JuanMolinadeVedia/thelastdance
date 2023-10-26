@@ -37,9 +37,11 @@ export function CartedContextProvider({ children }: ChildrenContextProps) {
 
   const handleClickCart = useCallback(
     (p: Product) => {
-      console.log(carted);
-      setCarted([...carted, p]);
-      saveCarted(loggedUserInfo.id, [...carted, p])
+      if (!(carted.includes(p))) {
+        setCarted([...carted, p]);
+        saveCarted(loggedUserInfo.id, [...carted, p])
+        console.log(sessionStorage.getItem(`carted_${loggedUserInfo.id}`))
+      }
     },
     [carted]
   );

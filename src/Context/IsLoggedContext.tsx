@@ -17,7 +17,7 @@ type loggedValue = {
   loggedUserInfo: loggedUser;
   isLogged: boolean;
   checkFunction: (user: string, password: string) => Promise<loggedUser>;
-  logOut: () => string;
+  logOut: (id: number) => string;
 };
 
 type loggedUser = {
@@ -87,10 +87,10 @@ export function IsLoggedContextProvider({ children }: ChildrenContextProps) {
     return user;
   }, []);
 
-  const logOut = () => {
-    localStorage.removeItem("user");
+  const logOut = (id: number) => {
+    sessionStorage.removeItem(`user_${id}`)
+    sessionStorage.removeItem("user");
     setLogged(false);
-    console.log(localStorage.getItem("user"));
     return "Done";
   };
 
