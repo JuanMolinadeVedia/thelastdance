@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import "./CardDetails.css";
 import { Navbar } from "../Navbar/Navbar";
+import { WishedContext } from "../../Context/WishedContext";
+import { CartedContext } from "../../Context/CartedContext";
 
 type ProductProps = {
   key: number;
@@ -56,6 +57,8 @@ export function CardDetails() {
   const [data, setData] = useState<ProductProps>();
   const { id } = useParams();
   const [selectedImage, setSelectedImage] = useState<string>("");
+  const { clickFunctionWish } = useContext(WishedContext);
+  const { clickFunctionCart } = useContext(CartedContext);
 
   const handleImageClick = (image: string) => {
     setSelectedImage(image);
@@ -66,7 +69,11 @@ export function CardDetails() {
       const statsApi = `https://dummyjson.com/products/${id}`;
       fetch(statsApi)
         .then((response) => response.json())
-        .then((data) => setData(data));
+        .then((data) => {
+          if (data) {
+            setData(data);
+          }
+        });
     }
     fetchProduct();
   }, [id]);
@@ -77,7 +84,6 @@ export function CardDetails() {
       <div className="card-details-page">
         <div className="details-card">
           <div className="details-inner">
-
             <div className="details-images">
               <img
                 className="details-main-image"
@@ -100,7 +106,9 @@ export function CardDetails() {
             <div className="right-details">
               <div className="details-details">
                 <h2>{data?.title}</h2>
-                <div className="rating">{data && starsRating(data?.rating)}</div>
+                <div className="rating">
+                  {data && starsRating(data?.rating)}
+                </div>
                 <h3>${data?.price}</h3>
                 <h3>
                   $
@@ -114,8 +122,24 @@ export function CardDetails() {
                 <p>{data?.description}</p>
                 <h3>Stock: {data?.stock}</h3>
                 <div className="button-wrapper">
-                  <button className="cardbutton">Add Cart</button>
-                  <button className="cardbutton">Wishlist</button>
+                  <button
+                    className="cardbutton"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      clickFunctionCart(data);
+                    }}
+                  >
+                    Add Cart
+                  </button>
+                  <button
+                    className="cardbutton"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      clickFunctionWish(data);
+                    }}
+                  >
+                    Wishlist
+                  </button>
                 </div>
               </div>
             </div>

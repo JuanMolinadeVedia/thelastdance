@@ -21,6 +21,9 @@
     grid-template-columns: repeat(auto-fit, minmax(350px, 0.5fr));
     position: relative;
   }
+  .card-container a{
+    cursor: default;
+  }
 
   .product {
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
@@ -89,6 +92,7 @@
     justify-content: center;
     margin-top: 20px;
     gap: 20px;
+    cursor:default
   }
 
   .button-wrapper {
@@ -96,7 +100,7 @@
     font-size: 16px;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
+    cursor: default;
   }
 
   .button-cart,
@@ -105,8 +109,13 @@
     font-size: 16px;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
     color: orangered;
+  }
+  .button-cart:hover,
+  .button-wishlist:hover{
+    background-color: orangered;
+    color: white;
+    cursor: pointer;
   }
 }
 
@@ -222,5 +231,4 @@
     cursor: pointer;
     color: orangered;
   }
-}
 }

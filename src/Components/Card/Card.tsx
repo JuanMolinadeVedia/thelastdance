@@ -8,7 +8,7 @@ import {
   ReceiptLongIcon,
   ShoppingCartIcon,
 } from "../../assets/Imports/Imports";
-
+import { toast } from "sonner";
 
 interface CardProps {
   product: Product;
@@ -72,6 +72,7 @@ function Card(props: CardProps) {
             onClick={(e) => {
               e.preventDefault();
               clickFunctionCart(product);
+              toast.success("BIEN!");
             }}
           >
             <ShoppingCartIcon />

@@ -8,6 +8,7 @@ import { FiltersData } from "../Filters/Filters";
 import { Sidebar } from "../Sidebar/Sidebar";
 import { ListIcon } from "../../assets/Imports/Imports";
 import "../Sidebar/Sidebar.css";
+import { Toaster, toast } from "sonner";
 
 function Shop() {
   const products = useContext(ProductContext);
@@ -40,6 +41,7 @@ function Shop() {
   return (
     <>
       <Navbar />
+      <Toaster richColors />
       <div className="container">
         <div className="sidebar-button">
           <button className="sidebar-toggle" onClick={toggleSidebar}>
