@@ -93,7 +93,6 @@ export function IsLoggedContextProvider({ children }: ChildrenContextProps) {
     localStorage.removeItem(`wished_${id}`);
     localStorage.removeItem(`carted_${id}`);
     setLogged(false);
-    console.log(localStorage.getItem("user"));
     return "Done";
   };
 

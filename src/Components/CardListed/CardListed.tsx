@@ -19,20 +19,20 @@ const discountPrice = (price: number, discount: number) => {
 
 const CardListed: React.FC<CardListedProps> = ({ product }) => {
   return (
-    <div className="product">
-      <div className="card-info">
-        <div className="image">
+    <div className="carshed-product">
+      <div className="carshed-info">
+        <div className="carshed-image">
           <img
-            className="productImg"
+            className="carshed-productImg"
             src={randomSelect(product.images)}
             alt={product.title}
           />
         </div>
-        <h3 className="title">{product.title}</h3>
-        <p className="description">{product.description}</p>
+        <h3 className="carshed-title">{product.title}</h3>
+        <p className="carshed-description">{product.description}</p>
       </div>
-      <div className="price">
-        <p className="discountPrice">
+      <div className="carshed-price">
+        <p className="carshed-discountPrice">
           $
           {Math.floor(discountPrice(product.price, product.discountPercentage))}
         </p>
