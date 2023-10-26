@@ -16,40 +16,39 @@ export type CartedContextValue = {
 };
 
 const getCarted = (id: number) => {
-  const cartedString = sessionStorage.getItem(`carted_${id}`);
-  const cartedData: Product[] = JSON.parse(cartedString);
-  return cartedData
+  const cartedString = localStorage.getItem(`carted_${id}`);
+  if (cartedString) {
+    const cartedData: Product[] = JSON.parse(cartedString);
+    return cartedData;
+  }
 };
 
-
 const saveCarted = (id: number, cartedData: Product[]) => {
-  sessionStorage.setItem(`carted_${id}`, JSON.stringify(cartedData));
+  localStorage.setItem(`carted_${id}`, JSON.stringify(cartedData));
 };
 
 export const CartedContext = createContext<CartedContextValue>(DEFAULT_VALUE);
 
 export function CartedContextProvider({ children }: ChildrenContextProps) {
-
-  const { loggedUserInfo } = useContext(IsLoggedContext)
-  const cartedData = getCarted(loggedUserInfo.id)
+  const { loggedUserInfo } = useContext(IsLoggedContext);
+  const cartedData = getCarted(loggedUserInfo.id);
 
   const [carted, setCarted] = useState<Product[]>(cartedData ? cartedData : []);
 
   const handleClickCart = useCallback(
     (p: Product) => {
-      if (!(carted.includes(p))) {
-        setCarted([...carted, p]);
-        saveCarted(loggedUserInfo.id, [...carted, p])
-        console.log(sessionStorage.getItem(`carted_${loggedUserInfo.id}`))
-      }
+      const isIn = carted.some((product) => product.id === p.id);
+      if (!isIn) setCarted([...carted, p]);
+      saveCarted(loggedUserInfo.id, [...carted, p]);
     },
-    [carted]
+    [carted, loggedUserInfo.id]
   );
   return (
-    <CartedContext.Provider value={{
-      cartedList: carted,
-      clickFunctionCart: handleClickCart,
-    }}
+    <CartedContext.Provider
+      value={{
+        cartedList: carted,
+        clickFunctionCart: handleClickCart,
+      }}
     >
       {children}
     </CartedContext.Provider>

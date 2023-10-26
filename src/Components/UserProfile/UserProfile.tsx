@@ -15,16 +15,16 @@ export function UserProfile() {
 
   const USER_URL = `https://dummyjson.com/users/${loggedUserInfo.id}`;
 
-  async function fetchLoggedUser() {
-    const response = await fetch(USER_URL);
-    const userInfo = await response.json();
-    setUser(userInfo);
-  }
   useEffect(() => {
+    async function fetchLoggedUser() {
+      const response = await fetch(USER_URL);
+      const userInfo = await response.json();
+      setUser(userInfo);
+    }
     if (isLogged && loggedUserInfo) {
       fetchLoggedUser();
     }
-  }, [isLogged, loggedUserInfo]);
+  }, [isLogged, loggedUserInfo, USER_URL]);
 
   return (
     <>
@@ -88,7 +88,7 @@ export function UserProfile() {
                 <div
                   id="log-out-button"
                   onClick={() => {
-                    logOut(user?.id ? user.id : 0);
+                    logOut(loggedUserInfo.id);
                   }}
                 >
                   <LogoutIcon />

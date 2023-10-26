@@ -41,12 +41,13 @@ export const IsLoggedContext = createContext<loggedValue>({
     new Promise((resolve, reject) => {
       console.log("default fn");
       resolve(DEFAULT_USER);
+      reject("Hola");
     }),
   logOut: nonSense,
 });
 
 const getUserData = () => {
-  const userString = sessionStorage.getItem("user");
+  const userString = localStorage.getItem("user");
   if (userString) {
     const userData: loggedUser = JSON.parse(userString);
     return userData;
@@ -54,7 +55,7 @@ const getUserData = () => {
 };
 
 const saveData = (userData: loggedUser) => {
-  sessionStorage.setItem("user", JSON.stringify(userData));
+  localStorage.setItem("user", JSON.stringify(userData));
 };
 
 export function IsLoggedContextProvider({ children }: ChildrenContextProps) {
@@ -88,8 +89,9 @@ export function IsLoggedContextProvider({ children }: ChildrenContextProps) {
   }, []);
 
   const logOut = (id: number) => {
-    sessionStorage.removeItem(`user_${id}`)
-    sessionStorage.removeItem("user");
+    localStorage.removeItem("user");
+    localStorage.removeItem(`wished_${id}`);
+    localStorage.removeItem(`carted_${id}`);
     setLogged(false);
     return "Done";
   };
