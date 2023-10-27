@@ -8,8 +8,9 @@
   margin-bottom: 10px;
 }
 
-.carshed-info {
-  flex: 1;
+.carshed-info ,
+.carshed-price{
+display: flex;
 }
 
 .carshed-image {
@@ -45,4 +46,86 @@
   font-size: 24px;
   font-weight: bold;
   color: #ff0000;
+}
+
+.remove-button {
+  padding: 8px 16px;
+  background-color: #272727;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.remove-button:hover {
+  background-color: #111111;
+}
+
+.carshed-product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.carshed-info,
+.carshed-price {
+  display: flex;
+  align-items: center;
+}
+
+.carshed-image {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.carshed-productImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carshed-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.carshed-price {
+  text-align: right;
+}
+
+.carshed-discountPrice {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff0000;
+}
+
+.quantity-container {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.quantity-button {
+  padding: 4px 8px;
+  background-color: #f2f2f2;
+  color: #333333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.quantity-button:hover {
+  background-color: #e0e0e0;
+}
+
+.quantity {
+  margin: 0 8px;
 }
