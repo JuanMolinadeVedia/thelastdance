@@ -6,14 +6,10 @@ import { Link } from "react-router-dom";
 import { CardListed } from "../CardListed/CardListed";
 
 const Cart: React.FC = () => {
-  const { cartedList, removeFromCart }: CartedContextValue =
-    useContext(CartedContext);
-
-  const subtotal = cartedList.reduce((total, item) => total + item.price, 0);
-
-  const handleRemoveFromCart = (productId: number) => {
-    removeFromCart(productId);
-  };
+  const { cartedList }: CartedContextValue = useContext(CartedContext);
+  const distinctProducts = cartedList.length;
+  const totalProducts = cartedList.reduce((total, item) => total + item.quantity, 0);
+  const subtotal = cartedList.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
     <>
@@ -26,17 +22,13 @@ const Cart: React.FC = () => {
               <Link to={`/item/${item.id}`}>
                 <CardListed product={item} />
               </Link>
-              <button
-                className="remove-button"
-                onClick={() => handleRemoveFromCart(item.id)}
-              >
-                Remove
-              </button>
             </div>
           ))}
         </section>
         <div className="subtotal-container">
-          <p>Subtotal: ${subtotal}</p>
+          <p>Distinct Products: {distinctProducts || 0}</p>
+          <p>Total Products: {totalProducts || 0}</p>
+          <p>Subtotal: ${subtotal || 0}</p>
           <button className="buy-button">Buy Now</button>
         </div>
       </div>
